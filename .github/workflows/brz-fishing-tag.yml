@@ -5,7 +5,13 @@ run-name: Generating ${{ github.ref_name }} release by @${{ github.actor }}
 on:
   push:
     tags:
-      - "brz-fishing-v*"
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      ref_name:
+        description: "Release name"
+        required: true
+        default: "v1.0.0"
 
 env:
   working_path: resources/[brz]/brz-fishing
