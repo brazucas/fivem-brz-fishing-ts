@@ -29,7 +29,7 @@ jobs:
       - name: Generate release file name
         run: |
           export RELEASE_NAME=$(echo ${{ env.ref_name_or_input }} | sed 's/\./-/g')
-          echo releaseName=$RELEASE_NAME >> $GITHUB_ENV
+          echo releaseName=brz-fishing-$RELEASE_NAME >> $GITHUB_ENV
           echo releasePath="./$RELEASE_NAME.zip" >> $GITHUB_ENV
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
