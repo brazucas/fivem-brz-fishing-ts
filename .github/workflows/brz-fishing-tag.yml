@@ -26,7 +26,7 @@ jobs:
         run: |
           export RELEASE_NAME=$(echo ${{ github.ref_name }} | sed 's/\./-/g')
           echo releaseName=$RELEASE_NAME >> $GITHUB_ENV
-          echo releasePath="resources/\[brz\]/brz-fishing/$RELEASE_NAME.zip" >> $GITHUB_ENV
+          echo releasePath="$RELEASE_NAME.zip" >> $GITHUB_ENV
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
