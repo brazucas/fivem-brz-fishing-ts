@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"
+    ></script>
+
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        opacity: 0;
+      }
+
+      #lineTension {
+        background-image: linear-gradient(to right, grey 1px, transparent 1px),
+          linear-gradient(to bottom, grey 1px, transparent 1px);
+      }
+
+      .shake-light {
+        animation: vertical-shaking 0.9s infinite;
+      }
+
+      .shake-medium {
+        animation: vertical-shaking 0.5s infinite;
+      }
+
+      .shake-hard {
+        animation: vertical-shaking 0.15s infinite;
+      }
+
+      @keyframes vertical-shaking {
+        0% {
+          transform: translateY(0);
+        }
+        25% {
+          transform: translateY(5px);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+        75% {
+          transform: translateY(5px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .minigame-container {
+        width: 200px;
+      }
+
+      #baiting-minigame {
+        width: 150px;
+      }
+
+      .toast {
+        display: none;
+        letter-spacing: 3px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      .baitingSpot {
+        letter-spacing: 2px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+
+  <body></body>
+
+  <script src="./dist/dom/renderer.js"></script>
+  <script src="./dist/fishing.js"></script>
+</html>

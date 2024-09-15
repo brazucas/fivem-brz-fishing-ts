@@ -1,0 +1,153 @@
+export const reelingMinigameTemplate = /*html*/ `
+<div id="reeling-minigame" class="minigame-container" style="width: 400px; display: flex;">
+    <div style="float:left; width: 200px">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <pattern
+            id="smallGrid"
+            width="8"
+            height="8"
+            patternUnits="userSpaceOnUse"
+            >
+            <path
+                d="M 8 0 L 0 0 0 8"
+                fill="none"
+                stroke="gray"
+                stroke-width="0.5"
+            />
+            </pattern>
+            <pattern
+            id="grid"
+            width="80"
+            height="80"
+            patternUnits="userSpaceOnUse"
+            >
+            <rect width="80" height="80" fill="url(#smallGrid)" />
+            <path
+                d="M 80 0 L 0 0 0 80"
+                fill="none"
+                stroke="gray"
+                stroke-width="1"
+            />
+            </pattern>
+        </defs>
+
+        <text
+            id="fishDistanceText"
+            x="50%"
+            y="10%"
+            text-anchor="middle"
+            fill="#ffffff"
+            font-size="12"
+        >
+            100m
+        </text>
+
+        <circle
+            cx="50%"
+            cy="50%"
+            r="57"
+            id="fishDistanceIndicator"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="5"
+            stroke-dasharray="360"
+            transform="rotate(-90,100,100)"
+        />
+
+        <circle
+            id="fishDistanceRing"
+            cx="50%"
+            cy="50%"
+            r="57"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="1"
+            stroke-opacity="0.5"
+            stroke-dasharray="360"
+            transform="rotate(-90,100,100)"
+        />
+
+        <circle cx="50%" cy="50%" r="48" fill="#00000" fill-opacity="0.5" />
+
+        <circle
+            cx="50%"
+            cy="50%"
+            r="48"
+            fill="none"
+            stroke="#ffffff"
+            stroke-width="2"
+            stroke-dasharray="60 85"
+            transform="rotate(-120,100,100)"
+        />
+
+        <ellipse
+            id="lineTension"
+            cx="50%"
+            cy="50%"
+            rx="10%"
+            ry="3%"
+            fill="url(#grid)"
+            fill-opacity="0.7"
+        />
+
+        <ellipse
+            id="lineTensionBackground"
+            cx="50%"
+            cy="50%"
+            rx="10%"
+            ry="3%"
+            fill="#00ff00"
+            fill-opacity="0.7"
+        />
+        </svg>
+    </div>
+
+    <div style="float:right; width: 200px">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <style>
+                    .cls-1 {
+                        fill-rule: evenodd;
+                        fill: #fff;
+                        opacity: 0.9;
+                        transform: translate(2rem, 5.5rem);
+                    }
+                </style>
+            </defs>
+
+            <rect
+            rx="2"
+            ry="2"
+            x="30"
+            y="80"
+            width="30"
+            height="30"
+            fill="black"
+            stroke="black"
+            class="reelingKeyPress"
+            />
+
+            <rect
+            rx="2"
+            ry="2"
+            x="30"
+            y="80"
+            width="30"
+            height="30"
+            fill="none"
+            stroke="white"
+            stroke-width="1"
+            class="reelingKeyPress"
+            />
+
+            <text x="45" y="95" fill="#ffffff" class="reelingKeyPress" dominant-baseline="middle" text-anchor="middle" style="font-size: 20px; font-weight: bold; font-family: Arial">
+                E
+            </text>
+
+            <text x="120" y="95" fill="#ffffff" class="reelingKeyPress" dominant-baseline="middle" text-anchor="middle" style="font-size: 13px; font-weight: bold; font-family: Arial; letter-spacing: 1px">
+                PARA PUXAR
+            </text>
+        </svg>
+    </div>
+</div>`;

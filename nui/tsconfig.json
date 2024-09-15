@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "module": "esnext",
+    "types": ["@types/jquery", "@types/animejs", "@types/jest"],
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "allowUmdGlobalAccess": true,
+    "paths": {
+      "@common/*": ["../common/*"],
+      "@config": ["../config/config.ts"]
+    }
+  },
+  "include": ["./**/*", "../common/types.ts", "../config/config.ts"]
+}
