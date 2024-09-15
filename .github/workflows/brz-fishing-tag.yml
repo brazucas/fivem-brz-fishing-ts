@@ -1,0 +1,51 @@
+name: brz-fishing-release
+
+run-name: Generating ${{ github.ref_name }} release by @${{ github.actor }}
+
+on:
+  push:
+    tags:
+      - "brz-fishing-v*"
+
+env:
+  working_path: resources/[brz]/brz-fishing
+  fivemNodeVersion: 16.9.1
+
+jobs:
+  build:
+    name: Generate release ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate release file name
+        run: |
+          export RELEASE_NAME=$(echo ${{ github.ref_name }} | sed 's/\./-/g')
+          echo releaseName=$RELEASE_NAME >> $GITHUB_ENV
+          echo releasePath="resources/\[brz\]/brz-fishing/$RELEASE_NAME.zip" >> $GITHUB_ENV
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: ${{ env.fivemNodeVersion }}
+      - run: yarn
+        working-directory: ${{ env.working_path }}
+      - name: Build project
+        run: yarn build
+        working-directory: ${{ env.working_path }}
+      - name: Generate release asset
+        run: |
+          zip -r ${{ env.releaseName }}.zip ./ -i \
+          ./fxmanifest.lua \
+          '/nui/dist/*' \
+          '/nui/*.html' \
+          '/dist/*' \
+          ./package.json \
+          ./yarn.lock
+          ls -la
+          pwd
+        working-directory: ${{ env.working_path }}
+      - name: Upload release asset
+        id: upload-release-asset
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          fail_on_unmatched_files: true
+          files: ./${{ env.releasePath }}

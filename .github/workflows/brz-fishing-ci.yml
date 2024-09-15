@@ -1,0 +1,68 @@
+name: brz-fishing-ci
+
+run-name: Running brz-fishing CI by @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'resources/\[brz\]/brz-fishing/**'
+      - '.github/workflows/brz-fishing-ci.yml'
+  pull_request:
+    paths:
+      - '!*.MD'
+      - 'resources/\[brz\]/brz-fishing/**'
+      - '.github/workflows/brz-fishing-ci.yml'
+
+env:
+  working_path: resources/[brz]/brz-fishing
+  codeClimateReporterId: 4ba89cfff504ff3dad21ec61af2e60616aefc6531d03d8bee5890a78f38a07ab
+  fivemNodeVersion: 16.9.1
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: [ ubuntu-latest ]
+        node: [ '18', '20' ]
+    name: Test higher node ${{ matrix.node }}/${{ matrix.platform }}
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node }}
+      - run: yarn
+        working-directory: ${{ env.working_path }}
+      - name: Run tests
+        run: yarn test
+        working-directory: ${{ env.working_path }}
+  coverage:
+    name: Upload test coverage to Code Climate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: ${{ env.fivemNodeVersion }}
+      - run: yarn
+        working-directory: ${{ env.working_path }}
+      - name: Run tests & report coverage
+        uses: paambaati/codeclimate-action@v6.0.0
+        env:
+          CC_TEST_REPORTER_ID: ${{ env.codeClimateReporterId }}
+        with:
+          coverageCommand: yarn test --coverage
+          workingDirectory: ${{ env.working_path }}
+  build:
+    name: Build project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: ${{ env.fivemNodeVersion }}
+      - run: yarn
+        working-directory: ${{ env.working_path }}
+      - run: yarn build
+        working-directory: ${{ env.working_path }}
