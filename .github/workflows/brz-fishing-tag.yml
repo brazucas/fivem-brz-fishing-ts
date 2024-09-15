@@ -16,15 +16,16 @@ on:
 env:
   working_path: ./
   fivemNodeVersion: 16.9.1
+  ref_name_or_input: ${{ github.event.inputs.ref_name || github.ref_name }}
 
 jobs:
   build:
-    name: Generate release ${{ github.ref_name }}
+    name: Generate release
     runs-on: ubuntu-latest
     steps:
       - name: Generate release file name
         run: |
-          export RELEASE_NAME=$(echo ${{ github.ref_name }} | sed 's/\./-/g')
+          export RELEASE_NAME=$(echo ${{ env.ref_name_or_input }} | sed 's/\./-/g')
           echo releaseName=$RELEASE_NAME >> $GITHUB_ENV
           echo releasePath="./$RELEASE_NAME.zip" >> $GITHUB_ENV
       - uses: actions/checkout@master
