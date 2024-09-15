@@ -48,6 +48,7 @@ jobs:
           '/nui/*.html' \
           '/dist/*' \
           ./package.json \
+          ./README.md \
           ./yarn.lock
         working-directory: ${{ env.working_path }}
       - name: Upload release asset
