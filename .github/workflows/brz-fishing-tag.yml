@@ -13,6 +13,9 @@ on:
         required: true
         default: "v1.0.0"
 
+permissions:
+  contents: write
+
 env:
   working_path: ./
   fivemNodeVersion: 16.9.1
