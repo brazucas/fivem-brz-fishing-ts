@@ -10,8 +10,8 @@
     "lib": ["ES2020"],
     "paths": {
       "@common/*": ["../common/*"],
-      "@core/*": ["../../brz-core/client/*"],
-      "@helpers": ["../../brz-core/nodejs.ts"],
+      "@core/*": ["../brz-core/client/*"],
+      "@helpers": ["../brz-core/nodejs.ts"],
       "@config/*": ["../config/*"],
       "@/*": ["./*"]
     }
@@ -20,7 +20,7 @@
     "./**/*",
     "../common/**/*",
     "../config/*",
-    "../../brz-core/client",
-    "../../brz-core/nodejs.ts"
+    "../brz-core/client",
+    "../brz-core/nodejs.ts"
   ]
 }

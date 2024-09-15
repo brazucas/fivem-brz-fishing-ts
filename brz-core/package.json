@@ -1,0 +1,13 @@
+{
+  "name": "brz-core",
+  "version": "1.0.0",
+  "description": "Core helpers/functions to be used in other BRZ scripts",
+  "main": "index.js",
+  "author": "brz.gg",
+  "license": "ISC",
+  "devDependencies": {
+    "@citizenfx/client": "^2.0.7669-1",
+    "@citizenfx/server": "^2.0.7669-1",
+    "@types/node": "^16.0.0"
+  }
+}

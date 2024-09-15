@@ -1,6 +1,6 @@
 import { LocaleDefaults } from "../locale/defaults";
 import { DEFAULT_LANG } from "./config";
-import { Locale } from "../../brz-core/locale/locale.types";
+import { Locale } from "../brz-core/locale/locale.types";
 
 export type ScriptLocale<T extends keyof typeof LocaleDefaults> = Locale<
   T,

@@ -10,9 +10,9 @@
     "lib": ["ES2020"],
     "paths": {
       "@common/*": ["../common/*"],
-      "@core/*": ["../../brz-core/server/*"],
+      "@core/*": ["../brz-core/server/*"],
       "@config/*": ["../config/*"]
     }
   },
-  "include": ["./**/*", "../../brz-core/server/*", "../common/**/*"]
+  "include": ["./**/*", "../brz-core/server/*", "../common/**/*"]
 }
