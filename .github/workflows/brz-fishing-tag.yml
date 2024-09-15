@@ -14,7 +14,7 @@ on:
         default: "v1.0.0"
 
 env:
-  working_path: resources/[brz]/brz-fishing
+  working_path: ./
   fivemNodeVersion: 16.9.1
 
 jobs:
