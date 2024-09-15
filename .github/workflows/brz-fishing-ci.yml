@@ -7,24 +7,23 @@ on:
   push:
     paths:
       - 'resources/\[brz\]/brz-fishing/**'
-      - '.github/workflows/brz-fishing-ci.yml'
+      - ".github/workflows/brz-fishing-ci.yml"
   pull_request:
     paths:
-      - '!*.MD'
+      - "!*.MD"
       - 'resources/\[brz\]/brz-fishing/**'
-      - '.github/workflows/brz-fishing-ci.yml'
+      - ".github/workflows/brz-fishing-ci.yml"
 
 env:
-  working_path: resources/[brz]/brz-fishing
-  codeClimateReporterId: 4ba89cfff504ff3dad21ec61af2e60616aefc6531d03d8bee5890a78f38a07ab
+  working_path: ./
   fivemNodeVersion: 16.9.1
 
 jobs:
   test:
     strategy:
       matrix:
-        platform: [ ubuntu-latest ]
-        node: [ '18', '20' ]
+        platform: [ubuntu-latest]
+        node: ["18", "20"]
     name: Test higher node ${{ matrix.node }}/${{ matrix.platform }}
     runs-on: ${{ matrix.platform }}
     steps:
@@ -50,7 +49,7 @@ jobs:
       - name: Run tests & report coverage
         uses: paambaati/codeclimate-action@v6.0.0
         env:
-          CC_TEST_REPORTER_ID: ${{ env.codeClimateReporterId }}
+          CC_TEST_REPORTER_ID: ${{ secrets.codeClimateReporterId }}
         with:
           coverageCommand: yarn test --coverage
           workingDirectory: ${{ env.working_path }}
