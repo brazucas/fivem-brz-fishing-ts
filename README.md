@@ -6,6 +6,12 @@
 [![brz-fishing-ci](https://github.com/brz-gta5/fivem-brz-fishing-ts/actions/workflows/brz-fishing-ci.yml/badge.svg)](https://github.com/brz-gta5/fivem-brz-fishing-ts/actions/workflows/brz-fishing-ci.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/0ee2efc6d497410325d1/maintainability)](https://codeclimate.com/github/brz-gta5/fivem-brz-fishing-ts/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/0ee2efc6d497410325d1/test_coverage)](https://codeclimate.com/github/brz-gta5/fivem-brz-fishing-ts/test_coverage) [![](https://dcbadge.limes.pink/api/server/BAZ5aCU?style=flat)](https://discord.gg/BAZ5aCU)
 
 ### Highly customisable fishing script for FiveM servers
+
+This script is 100% free, you can support my work by giving a star to this repository or becoming a sponsor.
+
+[Become a sponsor 💜](
+    https://github.com/sponsors/pedropapa
+)
 </div>
 
 ## Supported frameworks
@@ -83,12 +89,6 @@ ensure brz-fishing
 | :--------------------- | :------------------------------------------------- |
 | <img width="30px" src="./.github/fishingrod.png" alt="Common bait"> fishingrod1              | Rod object the player will be assigned with when start fishing    |
 | <img width="30px" src="./.github/fishbait.png" alt="Fishing rod"> commonbait                 | Consumable item automatically used when the casting minigame finishes    |
-
-## ⚡️ Want new features?
-
-Sponsors gets priority support and feature requests. [Become a sponsor 💜](
-    https://github.com/sponsors/pedropapa
-)
 
 ## 👨‍💻 Contributing
 
