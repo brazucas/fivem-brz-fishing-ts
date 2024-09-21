@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [1.0.1] - 2024-09-21
 
 ### 🚀 Features
 
@@ -12,6 +12,26 @@ All notable changes to this project will be documented in this file.
 - Fix tag workflow
 - Update readme
 - Ignoring dist folder
+- Git cliff changelog operator
+- Update readme
+- Add discord badge
+- Update readme
+- Add settings file
+- Update yarn lock
+- Load from settings file
+- En-us as default language
+- Add settings to release
+- Fix ci workflow
+- Add jest setup file
+- Surface settings over to nui
+- Add nui localisation
+- Ignoring nui dist files
+- More docs
+
+### 🐛 Bug Fixes
+
+- Return to stop function before debug message
+- Nui tests
 
 ## [1.0.0] - 2024-09-15
 
