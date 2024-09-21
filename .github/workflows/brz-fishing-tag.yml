@@ -53,7 +53,8 @@ jobs:
           ./INSTALLING.md \
           ./settings.js \
           ./yarn.lock \
-          ./.github/installation/
+          ./.github/installation/ \
+          ./LICENSE
         working-directory: ${{ env.working_path }}
       - name: Upload release asset
         id: upload-release-asset
