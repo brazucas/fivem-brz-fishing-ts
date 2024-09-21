@@ -49,6 +49,8 @@ jobs:
           '/dist/*' \
           ./package.json \
           ./README.md \
+          ./CHANGELOG.md \
+          ./settings.js \
           ./yarn.lock
         working-directory: ${{ env.working_path }}
       - name: Upload release asset
