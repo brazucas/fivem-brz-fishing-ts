@@ -5,14 +5,9 @@ run-name: Running brz-fishing CI by @${{ github.actor }}
 on:
   workflow_dispatch:
   push:
-    paths:
-      - 'resources/\[brz\]/brz-fishing/**'
-      - ".github/workflows/brz-fishing-ci.yml"
   pull_request:
     paths:
       - "!*.MD"
-      - 'resources/\[brz\]/brz-fishing/**'
-      - ".github/workflows/brz-fishing-ci.yml"
 
 env:
   working_path: ./
