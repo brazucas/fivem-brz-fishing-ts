@@ -123,6 +123,7 @@ window.addEventListener("message", (event: any) => {
 
   if (action && actionHandlers[action]) {
     actionHandlers[action](event);
+    return;
   }
 
   console.error(`[brz-fishing] Unknown action ${action}`);
