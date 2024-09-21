@@ -125,7 +125,7 @@ exports[`baiting minigame template should match the snapshot 1`] = `
             </text>
 
             <text x=\\"120\\" y=\\"95\\" fill=\\"#ffffff\\" class=\\"catchTooltip\\" dominant-baseline=\\"middle\\" text-anchor=\\"middle\\" style=\\"font-size: 13px; font-weight: bold; font-family: Arial; letter-spacing: 1px\\">
-                (PRESSIONE)
+                (HOLD)
             </text>
         </svg>
     </div>

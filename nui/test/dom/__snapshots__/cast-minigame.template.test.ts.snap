@@ -97,7 +97,7 @@ exports[`cast minigame template should match the snapshot 1`] = `
             </text>
 
             <text x=\\"100\\" y=\\"95\\" fill=\\"#ffffff\\" dominant-baseline=\\"middle\\" text-anchor=\\"middle\\" style=\\"font-size: 13px; font-weight: bold; font-family: Arial; letter-spacing: 1px\\">
-                (PARA LANÇAR)
+                (TO CAST)
             </text>
         </svg>
     </div>
