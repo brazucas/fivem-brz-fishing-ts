@@ -1,6 +1,8 @@
 import { LocaleDefaults } from "../locale/defaults";
-import { DEFAULT_LANG } from "./config";
 import { Locale } from "../brz-core/locale/locale.types";
+import { BrazilianPortuguese } from "../locale/pt-br";
+
+declare const SETTINGS: any;
 
 export type ScriptLocale<T extends keyof typeof LocaleDefaults> = Locale<
   T,
@@ -11,7 +13,7 @@ export const t = <T extends keyof typeof LocaleDefaults>(
   phase: T,
   vars?: ScriptLocale<T>["variables"]
 ): string => {
-  const locale = locales[DEFAULT_LANG];
+  const locale = locales[SETTINGS.DEFAULT_LANG as keyof typeof locales];
 
   let phrase: string = locale[phase];
 
@@ -24,8 +26,8 @@ export const t = <T extends keyof typeof LocaleDefaults>(
   return phrase;
 };
 
-const locales = {
-  "pt-br": Object.values(LocaleDefaults).reduce((acc, curr, index) => {
+const getLocaleVars = (locale: typeof LocaleDefaults) =>
+  Object.values(locale).reduce((acc, curr, index) => {
     if (typeof curr === "string") {
       acc[Object.keys(LocaleDefaults)[index]] = curr;
     } else {
@@ -33,5 +35,9 @@ const locales = {
     }
 
     return acc;
-  }, {} as any),
+  }, {} as any);
+
+const locales = {
+  "en-us": getLocaleVars(LocaleDefaults),
+  "pt-br": getLocaleVars(BrazilianPortuguese),
 };

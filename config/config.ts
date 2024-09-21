@@ -1,15 +1,18 @@
 import { Fish } from "@common/types";
 
-export const DEFAULT_LANG = "pt-br";
+declare let SETTINGS: any;
 
-const MAXIMUM_LINE_TENSION = 100;
-const LINE_TENSION_INCREASE_RATE = 5;
-const TENSION_RECOVER_RATE = 1;
-const PULL_DISTANCE_RATE_PER_TICK = 10;
-const ROD_CAST_CHALLENGE_VELOCITY = 1;
-const ROD_CAST_CHALLENGE_INTERVAL = 1;
-const ROD_CAST_CHALLENGE_ACCELERATION = 0.0001;
-const BAIT_HOLD_CHALLENGE_TIME = 500;
+const {
+  MAXIMUM_LINE_TENSION,
+  LINE_TENSION_INCREASE_RATE,
+  TENSION_RECOVER_RATE,
+  PULL_DISTANCE_RATE_PER_TICK,
+  ROD_CAST_CHALLENGE_VELOCITY,
+  ROD_CAST_CHALLENGE_INTERVAL,
+  ROD_CAST_CHALLENGE_ACCELERATION,
+  BAIT_HOLD_CHALLENGE_TIME,
+  FISHES,
+} = SETTINGS;
 
 export const fishingLimits = {
   maximumLineTension: Number(MAXIMUM_LINE_TENSION) || 100,
@@ -23,40 +26,4 @@ export const fishingLimits = {
   baitHoldChallengeTime: Number(BAIT_HOLD_CHALLENGE_TIME) || 500,
 } as const;
 
-export const fishes: Fish = {
-  fish: {
-    itemName: "fish",
-    type: "common",
-    hash: 802685111,
-  },
-  dolphin: {
-    itemName: "dolphin",
-    type: "uncommon",
-    hash: -1950698411,
-  },
-  hammerShark: {
-    itemName: "hammershark",
-    type: "uncommon",
-    hash: 1015224100,
-  },
-  tigerShark: {
-    itemName: "tigershark",
-    type: "rare",
-    hash: 113504370,
-  },
-  killerWhale: {
-    itemName: "killerwhale",
-    type: "epic",
-    hash: -1920284487,
-  },
-  humpBack: {
-    itemName: "humpback",
-    type: "legendary",
-    hash: 1193010354,
-  },
-  stingray: {
-    itemName: "stingray",
-    type: "rare",
-    hash: "a_c_stingray",
-  },
-};
+export const fishes: Fish = FISHES as any;
