@@ -1,91 +1,90 @@
 export const LocaleDefaults = {
   fishing_spot_error: {
-    label: "Você não está em um ponto de pesca.",
+    label: "You are not at a fishing spot.",
     variables: {},
   },
   has_bait_error: {
-    label: "Você não tem uma isca de pesca.",
+    label: "You don't have fishing bait.",
     variables: {},
   },
   has_rod_error: {
-    label: "Você não tem uma vara de pesca.",
+    label: "You don't have a fishing rod.",
     variables: {},
   },
   near_spot_error: {
-    label: "Você não está perto de um ponto de pesca.",
+    label: "You are not near a fishing spot.",
     variables: {},
   },
   in_vehicle_error: {
-    label: "Você não pode pescar dentro de um veículo.",
+    label: "You can't fish inside a vehicle.",
     variables: {},
   },
   already_fishing_error: {
-    label: "Você já está pescando.",
+    label: "You are already fishing.",
     variables: {},
   },
   fishing_state: {
-    label: "Você agora está pescando...",
+    label: "You are now fishing...",
     variables: {},
   },
   fish_command_description: {
-    label: "Inicia a pescaria caso esteja próximo a um ponto de pesca.",
+    label: "Start fishing if you are near a fishing spot.",
     variables: {},
   },
   fish_command: {
-    label: "pescar",
+    label: "fish",
     variables: {},
   },
   pull_too_hard: {
-    label: "A linha estourou! puxe mais devagar na próxima vez.",
+    label: "The line broke! pull slower next time.",
     variables: {},
   },
   rod_cast_took_too_long: {
-    label: "Você demorou muito para lançar a linha",
+    label: "You took too long to cast the line",
     variables: {},
   },
   fishing_spot_not_found: {
-    label: "Local de pesca não encontrado",
+    label: "Fishing spot not found",
     variables: {},
   },
   fish_ran_away: {
-    label: "O peixe escapou!",
+    label: "The fish ran away!",
     variables: {},
   },
   fish_pull_hint: {
-    label:
-      "Pressione [E] para puxar o peixe! cuidado para não quebrar a linha!",
+    label: "Press [E] to pull the fish! be careful not to break the line!",
     variables: {},
   },
   fish_bite_bait: {
-    label: "O peixe mordeu a isca, pressione [E] para puxá-lo!",
+    label: "The fish bit the bait, press [E] to pull it!",
     variables: {},
   },
   fish_pull_too_soon: {
-    label: "Você puxou a linha cedo demais! o peixe acabou fugindo",
+    label: "You pulled too soon! the fish ran away.",
     variables: {},
   },
   initialise_script: {
-    label: "brz-fishing por brz.gg iniciado!",
+    label: "brz-fishing by brz.gg has started!",
     variables: {},
   },
   initialise_error: {
-    label: "Um erro ocorreu ao iniciar a pesca.",
+    label: "An error occurred while initializing brz-fishing.",
     variables: {},
   },
   no_fish_assigned: {
-    label: "Não há peixe atribuído ao player id %PLAYER_ID%",
+    label: "There's no fish assigned for player id %PLAYER_ID%",
     variables: {
       PLAYER_ID: "PLAYER_ID",
     },
   },
   catching_success: {
-    label: "Você pescou um %ITEM_LABEL%!",
+    label: "You got a %ITEM_LABEL%!",
     variables: {
       ITEM_LABEL: "ITEM_LABEL",
     },
   },
   unknown_error: {
-    label: "Um erro ocorreu ao iniciar a pesca.",
+    label: "An error occurred while initializing brz-fishing.",
     variables: {},
   },
 };
