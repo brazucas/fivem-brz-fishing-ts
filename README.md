@@ -3,7 +3,7 @@
 
 <img width="600px" src="./.github/banner.png" alt="Common bait">
 
-[![brz-fishing-ci](https://github.com/brz-gta5/fivem-brz-fishing-ts/actions/workflows/brz-fishing-ci.yml/badge.svg)](https://github.com/brz-gta5/fivem-brz-fishing-ts/actions/workflows/brz-fishing-ci.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/0ee2efc6d497410325d1/maintainability)](https://codeclimate.com/github/brz-gta5/fivem-brz-fishing-ts/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/0ee2efc6d497410325d1/test_coverage)](https://codeclimate.com/github/brz-gta5/fivem-brz-fishing-ts/test_coverage) [![](https://dcbadge.limes.pink/api/server/BAZ5aCU?style=flat)](https://discord.gg/BAZ5aCU)
+[![brz-fishing-ci](https://github.com/brazucas/fivem-brz-fishing-ts/actions/workflows/brz-fishing-ci.yml/badge.svg)](https://github.com/brazucas/fivem-brz-fishing-ts/actions/workflows/brz-fishing-ci.yml) [![Maintainability](https://api.codeclimate.com/v1/badges/0ee2efc6d497410325d1/maintainability)](https://codeclimate.com/github/brazucas/fivem-brz-fishing-ts/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/0ee2efc6d497410325d1/test_coverage)](https://codeclimate.com/github/brazucas/fivem-brz-fishing-ts/test_coverage) [![](https://dcbadge.limes.pink/api/server/BAZ5aCU?style=flat)](https://discord.gg/BAZ5aCU)
 
 ### Highly customisable fishing script for FiveM servers
 
@@ -74,7 +74,7 @@ Please read the [installation guide](./INSTALLING.md) for more information.
 
 ```bash
 cd <server_root_path>/txdata/resources
-git submodule add https://github.com/brz-gta5/fivem-brz-fishing-ts.git brz-fishing
+git submodule add https://github.com/brazucas/fivem-brz-fishing-ts.git brz-fishing
 ```
 
 1. Install [NodeJS](https://nodejs.org/en/download/package-manager) and [nvm](https://github.com/nvm-sh/nvm).
