@@ -1,3 +1,5 @@
+import { t } from "@config/locales";
+
 export const baitingMinigameTemplate = /*html*/ `
 <div id="baiting-minigame" class="minigame-container shake-light" style="display: flex; width: 350px">
     <div style="float:left; width: 150px">
@@ -122,7 +124,7 @@ export const baitingMinigameTemplate = /*html*/ `
             </text>
 
             <text x="120" y="95" fill="#ffffff" class="catchTooltip" dominant-baseline="middle" text-anchor="middle" style="font-size: 13px; font-weight: bold; font-family: Arial; letter-spacing: 1px">
-                (PRESSIONE)
+                (${t("holdkeydown")})
             </text>
         </svg>
     </div>

@@ -1,3 +1,5 @@
+import { t } from "@config/locales";
+
 export const maxLineHeight = 170;
 export const minLineHeight = 30;
 
@@ -97,7 +99,7 @@ export const castMinigameTemplate = /*html*/ `
             </text>
 
             <text x="100" y="95" fill="#ffffff" dominant-baseline="middle" text-anchor="middle" style="font-size: 13px; font-weight: bold; font-family: Arial; letter-spacing: 1px">
-                (PARA LANÇAR)
+                (${t("press_to_cast")})
             </text>
         </svg>
     </div>

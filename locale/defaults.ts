@@ -87,4 +87,16 @@ export const LocaleDefaults = {
     label: "An error occurred while initializing brz-fishing.",
     variables: {},
   },
+  holdkeydown: {
+    label: "HOLD",
+    variables: {},
+  },
+  press_to_cast: {
+    label: "TO CAST",
+    variables: {},
+  },
+  press_to_pull: {
+    label: "TO PULL",
+    variables: {},
+  },
 };

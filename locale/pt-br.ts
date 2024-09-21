@@ -90,4 +90,16 @@ export const BrazilianPortuguese: typeof LocaleDefaults = {
     label: "Um erro ocorreu ao iniciar a pesca.",
     variables: {},
   },
+  holdkeydown: {
+    label: "SEGURE",
+    variables: {},
+  },
+  press_to_cast: {
+    label: "PARA LANÇAR",
+    variables: {},
+  },
+  press_to_pull: {
+    label: "PARA PUXAR",
+    variables: {},
+  },
 };

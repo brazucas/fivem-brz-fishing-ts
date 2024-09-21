@@ -1,3 +1,5 @@
+import { t } from "@config/locales";
+
 export const reelingMinigameTemplate = /*html*/ `
 <div id="reeling-minigame" class="minigame-container" style="width: 400px; display: flex;">
     <div style="float:left; width: 200px">
@@ -146,7 +148,7 @@ export const reelingMinigameTemplate = /*html*/ `
             </text>
 
             <text x="120" y="95" fill="#ffffff" class="reelingKeyPress" dominant-baseline="middle" text-anchor="middle" style="font-size: 13px; font-weight: bold; font-family: Arial; letter-spacing: 1px">
-                PARA PUXAR
+                ${t("press_to_pull")}
             </text>
         </svg>
     </div>
