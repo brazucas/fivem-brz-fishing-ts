@@ -21,74 +21,52 @@ This script is 100% free, you can support my work by giving a star to this repos
 
 Note: ESX or any other framework is not supported at the moment, feel free to contribute or open a feature request.
 
-## Installation
-1. Download the latest package from the [releases page](https://github.com/brz-gta5/fivem-brz-fishing-ts/releases).
-2. Extract the contents of the zip file into your resources folder.
-3. Make sure the resource is added to your server.cfg file.
-```cfg
-ensure brz-fishing
-```
-4. Add the following items to your qb-core `items.lua` file
-```lua
--- brz-fishing
-['fishingrod1'] = {
-    ['name'] = 'fishingrod1',
-    ['label'] = 'Fishing Rod',
-    ['weight'] = 80,
-    ['type'] = 'item',
-    ['image'] = 'fishingrod.png',
-    ['unique'] = false,
-    ['useable'] = true,
-    ['shouldClose'] = true,
-    ['combinable'] = nil,
-    ['description'] = 'Common fishing rod'
-},
-['commonbait'] = {
-    ['name'] = 'commonbait',
-    ['label'] = 'Common bait',
-    ['weight'] = 1,
-    ['type'] = 'item',
-    ['image'] = 'fishbait.png',
-    ['unique'] = false,
-    ['useable'] = false,
-    ['shouldClose'] = false,
-    ['combinable'] = true,
-    ['description'] = 'Common bait. Can be found at any fishing store'
-},
-```
-5. Allow the fishing items to be bought in your server. E.g. in qb-shops `config.lua`:
-```lua
-...
-['gearshop'] = {
-    ...
-    [1] = {
-        name = 'commonbait',
-        price = 50,
-        amount = 5000,
-        info = {},
-        type = 'item',
-        slot = 3,
-    },
-    [2] = {
-        name = 'fishingrod1',
-        price = 200,
-        amount = 100,
-        info = {},
-        type = 'item',
-        slot = 4,
-    },
-},
-...
-```
+## ⚡️ Features
 
-## 🧞 Features
+### Unique User Interface
 
-### qb-inventory items
+Designed from scratch, inspired by fishing mechanics in games like New World and Sea of Thieves.
+
+<img width="400px" src="./.github/feature_ui.gif" alt="Unique UI">
+
+### Unique Fishing Mechanics
+
+- Realistic rod with line that moves according to the fish
+- Fish catching animation
+- Water splash effects
+- 2D ui positioning locked to fishe's world position
+  
+<img width="400px" src="./.github/mechanics.gif" alt="Unique UI">
+
+### 
+
+### Highly customisable!
+
+You can change pretty much any aspect of the script, from the fishing mechanics to the UI, everything is customisable.
+
+The script is also 100% unit tested, so you can be sure that your changes won't break anything, it also makes the script easy read, understand and maintain by you or other contributors.
+
+### Integration with other frameworks
+
+The script is designed to be framework agnostic, but it has built-in support for qb-core and Quasar Framework (qs-inventory). Integrating with other frameworks is easy, given the script's modular architecture.
+
+## Installing
+
+Please read the [installation guide](./INSTALLING.md) for more information.
+
+### Default fishing items
 
 | Item name                  | Description                                        |
 | :--------------------- | :------------------------------------------------- |
-| <img width="30px" src="./.github/fishingrod.png" alt="Common bait"> fishingrod1              | Rod object the player will be assigned with when start fishing    |
-| <img width="30px" src="./.github/fishbait.png" alt="Fishing rod"> commonbait                 | Consumable item automatically used when the casting minigame finishes    |
+| <img width="30px" src="./.github/fishingrod.png" alt="Common bait"> fishingrod1              | Rod object the player will be assigned with when start fishing.   |
+| <img width="30px" src="./.github/fishbait.png" alt="Fishing rod"> commonbait                 | Consumable item automatically used when the casting minigame finishes.    |
+| <img width="30px" src="./.github/fish.png" alt="fish">fish | Common fish, can be found at any fishing spot. |
+| <img width="30px" src="./.github/dolphin.png" alt="dolphin">dolphin | Uncommon fish, can be found at the deep sea. |
+| <img width="30px" src="./.github/hammershark.png" alt="hammershark">hammershark | Uncommon fish, can be found at the deep sea. |
+| <img width="30px" src="./.github/tigershark.png" alt="tigershark">tigershark | Rare fish, can be found at the deep sea. |
+| <img width="30px" src="./.github/killerwhale.png" alt="killerwhale">killerwhale | Epic fish, can be found at the deep sea in some seasons of the year. |
+| <img width="30px" src="./.github/humpback.png" alt="humpback">humpback | Legendary fish, can be found at the deep sea in some seasons of the year. |
+| <img width="30px" src="./.github/stingray.png" alt="stingray">stingray | Rare fish, can be found at the deep sea. |
 
 ## 👨‍💻 Contributing
 

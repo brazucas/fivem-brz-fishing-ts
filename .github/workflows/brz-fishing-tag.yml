@@ -50,8 +50,10 @@ jobs:
           ./package.json \
           ./README.md \
           ./CHANGELOG.md \
+          ./INSTALLING.md \
           ./settings.js \
-          ./yarn.lock
+          ./yarn.lock \
+          ./.github/installation/
         working-directory: ${{ env.working_path }}
       - name: Upload release asset
         id: upload-release-asset
