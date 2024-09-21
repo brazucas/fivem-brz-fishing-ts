@@ -3,6 +3,10 @@ name 'brz-fishing'
 author 'brz.gg'
 game 'gta5'
 
+shared_scripts {
+    'settings.js',
+}
+
 server_script 'dist/server/**/*.js'
 
 client_script 'dist/client/**/*.js'
