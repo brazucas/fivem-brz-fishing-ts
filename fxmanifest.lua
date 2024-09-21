@@ -14,6 +14,7 @@ client_script 'dist/client/**/*.js'
 ui_page 'nui/fishing.html'
 
 files {
+    'settings.js',
     'nui/*.html',
     'nui/dist/*.js',
     'nui/dist/dom/*.js'

@@ -47,4 +47,10 @@ const SETTINGS = {
   },
 };
 
-exports("SETTINGS", SETTINGS);
+if (typeof exports !== "undefined") {
+  exports("SETTINGS", SETTINGS);
+}
+
+if (typeof window !== "undefined") {
+  window.SETTINGS = SETTINGS;
+}

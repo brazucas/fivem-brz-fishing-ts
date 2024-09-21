@@ -12,8 +12,8 @@
     "allowUmdGlobalAccess": true,
     "paths": {
       "@common/*": ["../common/*"],
-      "@config": ["../config/config.ts"]
+      "@config/*": ["../config/*"]
     }
   },
-  "include": ["./**/*", "../common/types.ts", "../config/config.ts"]
+  "include": ["./**/*", "../common/types.ts", "../config/*"]
 }
