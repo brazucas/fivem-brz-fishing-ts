@@ -8,7 +8,8 @@
     "build": "node build/build-bundle.js",
     "prewatch": "rimraf ./dist",
     "watch": "cross-env IS_WATCH_MODE=1 node build/build-bundle.js",
-    "test": "jest"
+    "test": "jest",
+    "changelog": "git cliff -o CHANGELOG.md"
   },
   "author": "brz.gg",
   "license": "ISC",
