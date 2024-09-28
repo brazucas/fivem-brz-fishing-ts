@@ -25,7 +25,7 @@ const adapters: {
   };
 } = {
   qbCore: {
-    isEnabled: !!exports["qb-core"]?.GetCoreObject()?.Functions?.RemoveItem,
+    isEnabled: !!exports["qb-core"]?.GetCoreObject?.()?.Functions?.RemoveItem,
     removeItem: (source: number, itemName: string) => {
       const player = qbCoreGetPlayer(source);
 
@@ -50,7 +50,7 @@ const adapters: {
     },
     getItem: (itemName: string) => {
       const item =
-        exports["qb-core"]?.GetCoreObject()?.Shared?.Items?.[itemName];
+        exports["qb-core"]?.GetCoreObject?.()?.Shared?.Items?.[itemName];
 
       return item;
     },
@@ -74,7 +74,7 @@ const adapters: {
 };
 
 const qbCoreGetPlayer =
-  exports["qb-core"]?.GetCoreObject()?.Functions?.GetPlayer;
+  exports["qb-core"]?.GetCoreObject?.()?.Functions?.GetPlayer;
 
 export const addItem = (source: number, itemName: string) =>
   getAdapter().addItem(source, itemName);

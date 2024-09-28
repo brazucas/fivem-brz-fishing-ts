@@ -6,11 +6,11 @@ const adapters: {
   };
 } = {
   qbCore: {
-    isEnabled: !!exports["qb-core"]?.GetCoreObject()?.Functions?.HasItem,
+    isEnabled: !!exports["qb-core"]?.GetCoreObject?.()?.Functions?.HasItem,
     hasItem: (itemName: string) =>
-      !!exports["qb-core"].GetCoreObject().Functions.HasItem(itemName),
+      !!exports["qb-core"].GetCoreObject?.().Functions.HasItem(itemName),
     notify: (message: string, type: "success" | "error") => {
-      exports["qb-core"].GetCoreObject().Functions.Notify(message, type);
+      exports["qb-core"].GetCoreObject?.().Functions.Notify(message, type);
     },
   },
 };
