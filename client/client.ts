@@ -2,6 +2,10 @@ import { Fish } from "@common/types";
 import { requestStartFishing, startFishing } from "./fishing";
 import { getState, setState } from "./state";
 import { t } from "@config/locales";
+import {
+  getUseItemHookName,
+  getUseItemHookHandler,
+} from "@core/thirdparties.service";
 
 RegisterCommand(
   t("fish_command"),
@@ -22,8 +26,10 @@ onNet("brz-fishing:startFishing", (fishId: keyof Fish) =>
   startFishing(GetPlayerServerId(PlayerId()), fishId)
 );
 
-onNet("inventory:client:ItemBox", (itemData: any, type: "use" | string) => {
-  if (type === "use" && itemData.name === "fishingrod1") {
+onNet(getUseItemHookName(), (...params: any) => {
+  const { itemName, itemType } = getUseItemHookHandler()(params);
+
+  if (itemType === "use" && itemName === "fishingrod1") {
     changeFishingState();
   }
 });

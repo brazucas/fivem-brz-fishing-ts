@@ -1,33 +1,17 @@
-type InventoryItem = {
-  weight: number;
-  unique: boolean;
-  name: string;
-  type: string;
-  description: string;
-  label: string;
-  combinable: boolean;
-  useable: boolean;
-  shouldClose: boolean;
-  image: string;
-};
+import { Adapter } from "../types/thirdparties.types";
+
+declare const SETTINGS: any;
+
+const qbCoreGetPlayer = () =>
+  SETTINGS.INVENTORY_SYSTEM === "qbCore" &&
+  exports["qb-core"]?.GetCoreObject?.()?.Functions?.GetPlayer;
 
 const adapters: {
-  [key in string]: {
-    isEnabled: boolean;
-    removeItem: (source: number, itemName: string) => boolean;
-    addItem: (source: number, itemName: string) => boolean;
-    getItem: (itemName: string) => InventoryItem;
-    notify: (
-      source: number,
-      message: string,
-      type: "success" | "error"
-    ) => void;
-  };
+  [key in string]: Adapter;
 } = {
   qbCore: {
-    isEnabled: !!exports["qb-core"]?.GetCoreObject()?.Functions?.RemoveItem,
     removeItem: (source: number, itemName: string) => {
-      const player = qbCoreGetPlayer(source);
+      const player = qbCoreGetPlayer()(source);
 
       if (!player) {
         console.error("Player not found ", source, itemName);
@@ -38,7 +22,7 @@ const adapters: {
       return true;
     },
     addItem: (source: number, itemName: string) => {
-      const player = qbCoreGetPlayer(source);
+      const player = qbCoreGetPlayer()(source);
 
       if (!player) {
         console.error("Player not found ", source, itemName);
@@ -50,12 +34,12 @@ const adapters: {
     },
     getItem: (itemName: string) => {
       const item =
-        exports["qb-core"]?.GetCoreObject()?.Shared?.Items?.[itemName];
+        exports["qb-core"]?.GetCoreObject?.()?.Shared?.Items?.[itemName];
 
       return item;
     },
     notify: (source: number, message: string, type: "success" | "error") => {
-      const player = qbCoreGetPlayer(source);
+      const player = qbCoreGetPlayer()(source);
 
       if (!player) {
         console.error("Player not found");
@@ -71,10 +55,43 @@ const adapters: {
       return true;
     },
   },
-};
+  ox_inventory: {
+    removeItem: (source: number, itemName: string) => {
+      exports["ox_inventory"].RemoveItem(source, itemName, 1);
+      return true;
+    },
+    addItem: (source: number, itemName: string) => {
+      exports["ox_inventory"].AddItem(source, itemName, 1);
+      return true;
+    },
+    getItem: (itemName: string) => {
+      const item = exports["ox_inventory"].Items(itemName);
 
-const qbCoreGetPlayer =
-  exports["qb-core"]?.GetCoreObject()?.Functions?.GetPlayer;
+      if (!item) return null;
+
+      const { name, weight, label, stack, consume, client = null } = item;
+
+      return {
+        weight,
+        unique: false,
+        name,
+        type: "item",
+        description: name,
+        label,
+        combinable: stack,
+        useable: consume,
+        shouldClose: false,
+        image: client?.image,
+      };
+    },
+    notify: (source: number, message: string, type: "success" | "error") =>
+      TriggerClientEvent("ox_lib:notify", source, {
+        title: "Fishing",
+        description: message,
+        type,
+      }),
+  },
+};
 
 export const addItem = (source: number, itemName: string) =>
   getAdapter().addItem(source, itemName);
@@ -91,11 +108,12 @@ export const notify = (
 ) => getAdapter().notify(source, message, type);
 
 const getAdapter = () => {
-  const enabledAdapterName = Object.keys(adapters).find(
-    (adapterName) => adapters[adapterName].isEnabled
-  );
+  const enabledAdapterName = SETTINGS.INVENTORY_SYSTEM || "ox_inventory";
 
-  if (!enabledAdapterName) throw new Error("No enabled adapter found");
+  if (!adapters[enabledAdapterName])
+    throw new Error(
+      `FATAL: ${enabledAdapterName} is not supported, please check the documentation for supported inventory systems`
+    );
 
   return adapters[enabledAdapterName];
 };

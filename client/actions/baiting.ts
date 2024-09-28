@@ -55,7 +55,6 @@ const startBaitingOpportunity = () => {
   baitingOpportunityTickInterval = setInterval(baitingOpportunityTick, 10);
 
   detectBaitCatchTick = setTick(async () => {
-    console.log("detectBaitCatchTick");
     if (IsControlJustPressed(0, 46)) {
       SendNUIMessage({
         action: "hide-baiting-tooltips",

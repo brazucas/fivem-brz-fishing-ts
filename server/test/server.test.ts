@@ -135,6 +135,22 @@ describe("brz-fishing server-side script", () => {
         "success"
       );
     });
+
+    it("should log an error message when item is not found", () => {
+      const consoleError = jest.spyOn(global.console, "error");
+
+      (getItem as jest.Mock).mockReturnValueOnce(null);
+
+      processRequestStartFishing(1);
+
+      processCatchFishEvent(1);
+
+      expect(consoleError).toHaveBeenCalledWith(
+        expect.stringMatching(
+          /ERROR: Item (.*?) does not exist. Please be sure you added all fishing items to your inventory system./
+        )
+      );
+    });
   });
 
   describe("processUseBaitEvent", () => {
