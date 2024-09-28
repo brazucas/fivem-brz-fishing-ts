@@ -1,15 +1,4 @@
-type InventoryItem = {
-  weight: number;
-  unique: boolean;
-  name: string;
-  type: string;
-  description: string;
-  label: string;
-  combinable: boolean;
-  useable: boolean;
-  shouldClose: boolean;
-  image: string;
-};
+import { Adapter } from "../types/thirdparties.types";
 
 declare const SETTINGS: any;
 
@@ -18,16 +7,7 @@ const qbCoreGetPlayer = () =>
   exports["qb-core"]?.GetCoreObject?.()?.Functions?.GetPlayer;
 
 const adapters: {
-  [key in string]: {
-    removeItem: (source: number, itemName: string) => boolean;
-    addItem: (source: number, itemName: string) => boolean;
-    getItem: (itemName: string) => InventoryItem | null;
-    notify: (
-      source: number,
-      message: string,
-      type: "success" | "error"
-    ) => void;
-  };
+  [key in string]: Adapter;
 } = {
   qbCore: {
     removeItem: (source: number, itemName: string) => {
