@@ -1,4 +1,5 @@
 const SETTINGS = {
+  INVENTORY_SYSTEM: "ox_inventory", // ox_inventory or qb-core
   DEFAULT_LANG: "en-us",
   MAXIMUM_LINE_TENSION: 100,
   LINE_TENSION_INCREASE_RATE: 5,
