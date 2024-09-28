@@ -15,6 +15,7 @@ global.PlayerId = jest.fn(() => 1);
 
 import { requestStartFishing, startFishing } from "@/fishing";
 import { getState, setState } from "@/state";
+import { getUseItemHookName } from "@core/thirdparties.service";
 
 jest.mock("@config/locales", () => ({
   t: jest.fn().mockImplementation((phase: string) => {
@@ -31,6 +32,14 @@ jest.mock("../fishing", () => ({
 jest.mock("../state", () => ({
   getState: jest.fn(),
   setState: jest.fn(),
+}));
+
+jest.mock("@core/thirdparties.service", () => ({
+  getUseItemHookName: jest.fn().mockReturnValue("inventory:client:ItemBox"),
+  getUseItemHookHandler: jest.fn().mockReturnValue(() => ({
+    itemName: "fishingrod1",
+    itemType: "use",
+  })),
 }));
 
 describe("client", () => {
@@ -78,7 +87,11 @@ describe("client", () => {
       (setState as jest.Mock).mockReset();
       (requestStartFishing as jest.Mock).mockReset();
     });
-    it("should register an onNet event for inventory:client:ItemBox", () => {
+    it("should register an onNet event for the third party adapter", () => {
+      (getUseItemHookName as jest.Mock).mockReturnValue(
+        "inventory:client:ItemBox"
+      );
+
       expect(global.onNet).toBeCalledWith(
         "inventory:client:ItemBox",
         expect.any(Function)
