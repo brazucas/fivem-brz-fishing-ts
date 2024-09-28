@@ -33,6 +33,13 @@ export const processCatchFishEvent = (playerId: PlayerId) => {
 
   const itemInfo = getItem(fish.itemName);
 
+  if (!itemInfo) {
+    console.error(
+      `ERROR: Item ${fish.itemName} does not exist. Please be sure you added all fishing items to your inventory system.`
+    );
+    return;
+  }
+
   addItem(playerId, fish.itemName);
   notify(
     playerId,
