@@ -5,6 +5,11 @@ game 'gta5'
 
 shared_scripts {
     'settings.js',
+    '@ox_lib/init.lua',
+}
+
+ox_libs {
+    'interface',
 }
 
 server_script 'dist/server/**/*.js'
