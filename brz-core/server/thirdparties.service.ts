@@ -3,7 +3,7 @@ import { Adapter } from "../types/thirdparties.types";
 declare const SETTINGS: any;
 
 const qbCoreGetPlayer = () =>
-  SETTINGS.INVENTORY_SYSTEM === "qb-core" &&
+  SETTINGS.INVENTORY_SYSTEM === "qbCore" &&
   exports["qb-core"]?.GetCoreObject?.()?.Functions?.GetPlayer;
 
 const adapters: {
