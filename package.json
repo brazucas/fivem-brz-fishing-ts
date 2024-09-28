@@ -22,6 +22,7 @@
     "@types/node": "^20.11.30",
     "cross-env": "^7.0.3",
     "esbuild": "^0.20.2",
+    "git-cliff": "^2.6.1",
     "jest": "27",
     "jest-environment-jsdom": "27",
     "rimraf": "^5.0.5",

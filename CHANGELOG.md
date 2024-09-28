@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file.
 
+## [unreleased]
+
+### 🚀 Features
+
+- Surface settings over to nui
+- Add nui localisation
+- Ignoring nui dist files
+- More docs
+- Update changelog
+- Add license file
+- Bundle installation folder in release
+- Removing unused declarations
+- Add changelog script
+- Add item images to installation folder
+- Add check for item existence
+- Remove log line
+- Add ox_inventory adapter
+- Add INVENTORY_SYSTEM setting option
+- Add ox_lib interface module for notifications
+- Add ox_inventory adapter
+- Make event trigger dynamic depending on enabled third party
+- Add nullish condition for params handlers
+- Moving types to own folder
+- Correct system name for qbcore
+
+### 🐛 Bug Fixes
+
+- Nui tests
+- Outdated docs
+- Wrong condition check
+
 ## [1.0.1] - 2024-09-21
 
 ### 🚀 Features
@@ -23,15 +54,10 @@ All notable changes to this project will be documented in this file.
 - Add settings to release
 - Fix ci workflow
 - Add jest setup file
-- Surface settings over to nui
-- Add nui localisation
-- Ignoring nui dist files
-- More docs
 
 ### 🐛 Bug Fixes
 
 - Return to stop function before debug message
-- Nui tests
 
 ## [1.0.0] - 2024-09-15
 
