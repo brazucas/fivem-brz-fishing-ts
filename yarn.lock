@@ -1439,49 +1439,49 @@ get-stream@^8.0.1:
   resolved "https://registry.npmjs.org/get-stream/-/get-stream-8.0.1.tgz"
   integrity sha512-VaUJspBffn/LMCJVoMvSAdmscJyS1auj5Zulnn5UoYcY531UWmdwhRWkcGKnGU93m5HSXP9LP2usOryrBtQowA==
 
-git-cliff-darwin-arm64@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/git-cliff-darwin-arm64/-/git-cliff-darwin-arm64-2.6.1.tgz#28df7850de314f5fe4ebdadc8d692ad55af195ef"
-  integrity sha512-uzLlHGXgOf6gzBaloWdfBCfqQFKTcitT65IgtdH1mEX03SLgRFJUhlw4tYbTXVwdPgfWSoP1LGO+b+D4/s8X9g==
+git-cliff-darwin-arm64@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/git-cliff-darwin-arm64/-/git-cliff-darwin-arm64-2.2.1.tgz#8709904c876dfdd05c7c57cbc47d2051a08dd891"
+  integrity sha512-ZFoqm1Il5ayIYmcbtmZoNmudmsRZPsntXGjR4YHOqKm32ehBlLWL9loqrd6DOJoxj6nlQygoxJ0r4rBPDgczMQ==
 
-git-cliff-darwin-x64@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/git-cliff-darwin-x64/-/git-cliff-darwin-x64-2.6.1.tgz#ca59e8c78f18a635a2483de4a630d3c809fb0fa5"
-  integrity sha512-sx8ppi6Lb0rd96gT6GBKtZlssCm1GbpNsI+vUO1quMyRMSpfI/6TtIQNiLO59M2LNqzGXemC7ULyX0ENAh9QWA==
+git-cliff-darwin-x64@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/git-cliff-darwin-x64/-/git-cliff-darwin-x64-2.2.1.tgz#01adcddb69647f327d00412d035c1a01d868bec9"
+  integrity sha512-fTICBh8vvaLYjMqr8ebbIQbqsg/Wd9YrsxO2uol+WzQInpxxY0uwxYY1mqCyUYA2D/NS5Cm+fz53axM3NppulA==
 
-git-cliff-linux-arm64@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/git-cliff-linux-arm64/-/git-cliff-linux-arm64-2.6.1.tgz#f3968d7d5737ef7d0f554cbd93e1c45096fc7c86"
-  integrity sha512-T2Y7K4kBdGyD5GIZGYRLgbl0uRYVyBhWfQYj8emnt1XSvF/XaLGhi6hNPJuNCB+394HuhMtb2vV3G3S4uTumxg==
+git-cliff-linux-arm64@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/git-cliff-linux-arm64/-/git-cliff-linux-arm64-2.2.1.tgz#6c329acbd91355027de1b79dfa0afe36d213086d"
+  integrity sha512-oxanf/f+ZnB3D2VmY8mLVNMzV527G6k++Wng0vZlQz/89neGD8wmBbzkqgsKs2quLqWnc8p/lNsTKBGtPP5pJg==
 
-git-cliff-linux-x64@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/git-cliff-linux-x64/-/git-cliff-linux-x64-2.6.1.tgz#7d6b0058fab3417b086cebc2a7c2701c802aff27"
-  integrity sha512-4Y+kEM8JYT7HPgt++DEaqWW/SDxJ9iotork15sTP3fOiRMZi8p58ifjHEfPYVUup/hLpTmH2aiX72HNKa4gwRA==
+git-cliff-linux-x64@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/git-cliff-linux-x64/-/git-cliff-linux-x64-2.2.1.tgz#22424f607d91af1a5471460b98f683dca60e93c9"
+  integrity sha512-LJToEYKqcvrpX/uv8jklScljrCQWsPThrZEo6arhxCDXUWi/hUYtqaJDU8CowL5SoUhgY4JKXzacU1cmNUWC5Q==
 
-git-cliff-windows-arm64@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/git-cliff-windows-arm64/-/git-cliff-windows-arm64-2.6.1.tgz#3f5c3c67d6f98a9bcb2966c46e68067dc255e18b"
-  integrity sha512-6xx3AWYeJ00Y/KZb78j9QX0sG+mMav9q/FCexuf89aTs5QjGJfXWtEB7DijvH/m4FDYqVjWcXyt9+ST9eBx0eg==
+git-cliff-windows-arm64@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/git-cliff-windows-arm64/-/git-cliff-windows-arm64-2.2.1.tgz#4cfe7310d6e0457b8b55b498f34326fc58fed431"
+  integrity sha512-iJSDadCKLedtPBvkpfRVc9pB2tsmiEwAazPyXBZzHH+SmxQmQwbGOHp1ExPaOTvKqCvFiwQbG1/9X4LbVI5tmw==
 
-git-cliff-windows-x64@2.6.1:
-  version "2.6.1"
-  resolved "https://registry.npmjs.org/git-cliff-windows-x64/-/git-cliff-windows-x64-2.6.1.tgz"
-  integrity sha512-hRsOv0kVU/cKt9rglWYPuv84ZI1MflhhzQrycz99xF7heGbob4RRgcuN0JXnYPf3q8ATnMgsVlMccaIRXuJFGg==
+git-cliff-windows-x64@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/git-cliff-windows-x64/-/git-cliff-windows-x64-2.2.1.tgz#3fd0d267abc9e2da4447091d9beb99f3fc0d2664"
+  integrity sha512-nMP+z6y51Fz7KjhOcMQf0WQcTCuIxcGW0L7lBBDRtDt2AXG0enGPj3AB1xJlAX/EDWM4bENDwswwKtjQt9mkGA==
 
-git-cliff@^2.6.1:
-  version "2.6.1"
-  resolved "https://registry.npmjs.org/git-cliff/-/git-cliff-2.6.1.tgz"
-  integrity sha512-dxquXEx+dRWbggtxQzH2GpgCr6F+HjuY/jZA5QCc1AdvWfq010BxlRElrH7mgS2fHvvybY9gSw7qQEBk3tSM4Q==
+git-cliff@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/git-cliff/-/git-cliff-2.2.1.tgz#5928abaf85558c601c5a0a7c85d3c3815e3cb9e5"
+  integrity sha512-bALbaUgFgbaqc21iWIje4CgXWfVgtQ5v+NqTd++hbkPgC6blCenrTRudhExRX58GOvWPQnKgPuSus1uhpxU2iw==
   dependencies:
     execa "^8.0.1"
   optionalDependencies:
-    git-cliff-darwin-arm64 "2.6.1"
-    git-cliff-darwin-x64 "2.6.1"
-    git-cliff-linux-arm64 "2.6.1"
-    git-cliff-linux-x64 "2.6.1"
-    git-cliff-windows-arm64 "2.6.1"
-    git-cliff-windows-x64 "2.6.1"
+    git-cliff-darwin-arm64 "2.2.1"
+    git-cliff-darwin-x64 "2.2.1"
+    git-cliff-linux-arm64 "2.2.1"
+    git-cliff-linux-x64 "2.2.1"
+    git-cliff-windows-arm64 "2.2.1"
+    git-cliff-windows-x64 "2.2.1"
 
 glob@^10.3.7:
   version "10.3.12"
