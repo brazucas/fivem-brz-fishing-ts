@@ -71,7 +71,7 @@ const actionHandlers: {
     const { param, value } = event.data as EmitFishingSetParamAction;
     paramsHandlers[
       param as keyof Omit<FishingParam, "baseLineTension" | "fishId">
-    ](value);
+    ]?.(value);
   },
   "fish-2d-position": (event: any) => {
     const { center, posX, posY } = event.data as EmitFish2DPositionAction;
