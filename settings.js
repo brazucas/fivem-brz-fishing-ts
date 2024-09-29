@@ -49,10 +49,18 @@ const SETTINGS = {
   },
 };
 
+const LOCALE_OVERRIDES = {
+  // "en-us": {
+  //   fish_pull_hint: "My custom hint",
+  // },
+};
+
 if (typeof exports !== "undefined") {
   exports("SETTINGS", SETTINGS);
+  exports("LOCALE_OVERRIDES", LOCALE_OVERRIDES);
 }
 
 if (typeof window !== "undefined") {
   window.SETTINGS = SETTINGS;
+  window.LOCALE_OVERRIDES = LOCALE_OVERRIDES;
 }

@@ -3,6 +3,7 @@ import { Locale } from "../brz-core/locale/locale.types";
 import { BrazilianPortuguese } from "../locale/pt-br";
 
 declare const SETTINGS: any;
+declare const LOCALE_OVERRIDES: any;
 
 export type ScriptLocale<T extends keyof typeof LocaleDefaults> = Locale<
   T,
@@ -13,7 +14,10 @@ export const t = <T extends keyof typeof LocaleDefaults>(
   phase: T,
   vars?: ScriptLocale<T>["variables"]
 ): string => {
-  const locale = locales[SETTINGS.DEFAULT_LANG as keyof typeof locales];
+  const scriptLanguage = SETTINGS.DEFAULT_LANG as keyof typeof locales;
+
+  const locale =
+    localeOverrides(scriptLanguage) || locales?.[scriptLanguage] || [];
 
   let phrase: string = locale[phase];
 
@@ -24,6 +28,14 @@ export const t = <T extends keyof typeof LocaleDefaults>(
   }
 
   return phrase;
+};
+
+const localeOverrides = (language: string) => {
+  if (typeof LOCALE_OVERRIDES !== "undefined" && LOCALE_OVERRIDES?.[language]) {
+    return LOCALE_OVERRIDES[language];
+  }
+
+  return null;
 };
 
 const getLocaleVars = (locale: typeof LocaleDefaults) =>
