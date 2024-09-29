@@ -24,12 +24,12 @@ jest.mock("@config/locales", () => ({
   }),
 }));
 
-jest.mock("../fishing", () => ({
+jest.mock("./fishing", () => ({
   requestStartFishing: jest.fn(),
   startFishing: jest.fn(),
 }));
 
-jest.mock("../state", () => ({
+jest.mock("./state", () => ({
   getState: jest.fn(),
   setState: jest.fn(),
 }));
@@ -44,7 +44,7 @@ jest.mock("@core/inventory", () => ({
 
 describe("client", () => {
   beforeAll(() => {
-    require("../client");
+    require("./client");
   });
 
   describe("Fishing command", () => {

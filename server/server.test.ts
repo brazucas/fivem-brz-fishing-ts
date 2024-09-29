@@ -10,7 +10,7 @@ import {
   processCatchFishEvent,
   processRequestStartFishing,
   processUseBaitEvent,
-} from "../server";
+} from "./server";
 import { addItem, getItem, removeItem } from "@core/inventory";
 import { notify } from "@core/notification";
 

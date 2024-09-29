@@ -35,7 +35,7 @@ global.SendNUIMessage = jest.fn();
 global.GetPlayerServerId = jest.fn();
 global.PlayerId = jest.fn();
 
-jest.mock("../state", () => ({
+jest.mock("./state", () => ({
   getState: jest.fn(),
   resetFishingParams: jest.fn(),
   setFishingParam: jest.fn(),
@@ -55,7 +55,7 @@ jest.mock("@core/inventory", () => ({
   hasItem: jest.fn(),
 }));
 
-jest.mock("../helpers/fishing.helper", () => ({
+jest.mock("./helpers/fishing.helper", () => ({
   getFishingSpot: jest.fn(),
 }));
 
@@ -63,7 +63,7 @@ jest.mock("@core/helpers/cfx", () => ({
   emitNetTyped: jest.fn(),
 }));
 
-jest.mock("../animations", () => ({
+jest.mock("./animations", () => ({
   stopCastingAnimations: jest.fn(),
   stopFishingAnimation: jest.fn(),
   runCaughtFishAnimation: jest.fn(),

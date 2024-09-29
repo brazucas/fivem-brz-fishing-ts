@@ -13,22 +13,22 @@ import { FishingState } from "@common/types";
 
 global.SendNUIMessage = jest.fn();
 
-jest.mock("../actions/baiting", () => ({
+jest.mock("./actions/baiting", () => ({
   startBaiting: jest.fn(),
   stopBaiting: jest.fn(),
 }));
 
-jest.mock("../actions/casting", () => ({
+jest.mock("./actions/casting", () => ({
   startCasting: jest.fn(),
   stopCasting: jest.fn(),
 }));
 
-jest.mock("../actions/reeling", () => ({
+jest.mock("./actions/reeling", () => ({
   startReeling: jest.fn(),
   stopReeling: jest.fn(),
 }));
 
-jest.mock("../fishing", () => ({
+jest.mock("./fishing", () => ({
   stopFishing: jest.fn(),
 }));
 
