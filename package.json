@@ -4,7 +4,7 @@
   "description": "Script to enable fishing in BRZ-based servers",
   "main": "index.js",
   "scripts": {
-    "prebuild": "rimraf ./dist && tsc --noEmit -p client/tsconfig.json",
+    "prebuild": "rimraf ./dist && tsc --noEmit -p client/tsconfig.json && yarn changelog",
     "build": "node build/build-bundle.js",
     "prewatch": "rimraf ./dist",
     "watch": "cross-env IS_WATCH_MODE=1 node build/build-bundle.js",
@@ -22,6 +22,7 @@
     "@types/node": "^20.11.30",
     "cross-env": "^7.0.3",
     "esbuild": "^0.20.2",
+    "git-cliff": "^2.6.1",
     "jest": "27",
     "jest-environment-jsdom": "27",
     "rimraf": "^5.0.5",
