@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [unreleased]
+## [1.1.0] - 2024-09-29
 
 ### 🚀 Features
 
@@ -44,6 +44,7 @@ All notable changes to this project will be documented in this file.
 - Install husky dependency
 - Add pre-push commit to run changelog
 - Add run build before push
+- Update readme
 
 ## [1.0.1] - 2024-09-21
 
