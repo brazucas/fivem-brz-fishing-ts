@@ -6,10 +6,6 @@ All notable changes to this project will be documented in this file.
 
 ### 🚀 Features
 
-- Surface settings over to nui
-- Add nui localisation
-- Ignoring nui dist files
-- More docs
 - Update changelog
 - Add license file
 - Bundle installation folder in release
@@ -26,12 +22,25 @@ All notable changes to this project will be documented in this file.
 - Add nullish condition for params handlers
 - Moving types to own folder
 - Correct system name for qbcore
+- Add git-cliff to dev dependencies
+- Add compatible version of git-cliff for node 16.9.1
+- Removing git-cliff
+- Update installation docs including ox_inventory items
+- Update qbcore installation docs
+- Spliting thirdparty service into notification/inventory
+- Add node/jest definitions for brz-lib
+- Add support for locale overrides
 
 ### 🐛 Bug Fixes
 
-- Nui tests
 - Outdated docs
 - Wrong condition check
+
+### ⚙️ Miscellaneous Tasks
+
+- Moving tests to source folder
+- Address code dupes
+- Reintroduce git-cliff dev dependency
 
 ## [1.0.1] - 2024-09-21
 
@@ -54,10 +63,15 @@ All notable changes to this project will be documented in this file.
 - Add settings to release
 - Fix ci workflow
 - Add jest setup file
+- Surface settings over to nui
+- Add nui localisation
+- Ignoring nui dist files
+- More docs
 
 ### 🐛 Bug Fixes
 
 - Return to stop function before debug message
+- Nui tests
 
 ## [1.0.0] - 2024-09-15
 
