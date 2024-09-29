@@ -19,7 +19,8 @@ import {
   setState,
 } from "@/state";
 import { emitNetTyped } from "@core/helpers/cfx";
-import { hasItem, notify } from "@core/thirdparties.service";
+import { hasItem } from "@core/inventory";
+import { notify } from "@core/notification";
 
 global.GetPlayerPed = jest.fn().mockReturnValue(1);
 global.GetEntityCoords = jest.fn().mockReturnValue([0, 0, 0]);
@@ -46,9 +47,12 @@ jest.mock("@config/locales", () => ({
   t: jest.fn().mockImplementation((phase: string) => phase),
 }));
 
-jest.mock("@core/thirdparties.service", () => ({
-  hasItem: jest.fn(),
+jest.mock("@core/notification", () => ({
   notify: jest.fn(),
+}));
+
+jest.mock("@core/inventory", () => ({
+  hasItem: jest.fn(),
 }));
 
 jest.mock("../helpers/fishing.helper", () => ({

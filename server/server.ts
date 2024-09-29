@@ -7,8 +7,8 @@ import {
 import { fishes } from "@config/config";
 import { t } from "@config/locales";
 import { emitNetTyped, onNetTyped } from "@core/helpers/cfx";
-import { removeItem } from "@core/thirdparties.service";
-import { addItem, getItem, notify } from "@core/thirdparties.service";
+import { addItem, getItem, removeItem } from "@core/inventory";
+import { notify } from "@core/notification";
 
 const playerAssignedFishes: Record<number, keyof Fish> = {};
 

@@ -11,21 +11,20 @@ import {
   processRequestStartFishing,
   processUseBaitEvent,
 } from "../server";
-import {
-  addItem,
-  getItem,
-  notify,
-  removeItem,
-} from "@core/thirdparties.service";
+import { addItem, getItem, removeItem } from "@core/inventory";
+import { notify } from "@core/notification";
 
 jest.mock("@config/locales", () => ({
   t: jest.fn().mockReturnValue("translated message"),
 }));
 
-jest.mock("@core/thirdparties.service", () => ({
+jest.mock("@core/inventory", () => ({
   addItem: jest.fn(),
   getItem: jest.fn().mockReturnValue({ label: "item label" }),
   removeItem: jest.fn(),
+}));
+
+jest.mock("@core/notification", () => ({
   notify: jest.fn(),
 }));
 

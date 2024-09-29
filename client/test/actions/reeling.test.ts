@@ -2,7 +2,7 @@ import { startReeling, stopReeling } from "@/actions/reeling";
 import { getFishPed } from "@/animations";
 import { catchFish } from "@/fishing";
 import { getFishingParam, setFishingParam } from "@/state";
-import { notify } from "@core/thirdparties.service";
+import { notify } from "@core/notification";
 
 jest.useFakeTimers();
 
@@ -31,7 +31,7 @@ jest.mock("@/state", () => ({
   setState: jest.fn(),
 }));
 
-jest.mock("@core/thirdparties.service", () => ({
+jest.mock("@core/notification", () => ({
   notify: jest.fn(),
 }));
 

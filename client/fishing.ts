@@ -12,7 +12,7 @@ import {
   setState,
 } from "./state";
 import { emitNetTyped } from "@core/helpers/cfx";
-import { hasItem, notify } from "@core/thirdparties.service";
+import { notify } from "@core/notification";
 import { t } from "@config/locales";
 import {
   runCaughtFishAnimation,
@@ -20,6 +20,7 @@ import {
   stopFishingAnimation,
 } from "./animations";
 import { getFishingSpot } from "./helpers/fishing.helper";
+import { hasItem } from "@core/inventory";
 
 export const startFishing = async (source: number, fishId: keyof Fish) => {
   try {

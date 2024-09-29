@@ -3,7 +3,7 @@ import { performCastingAnimations } from "@/animations";
 import { useBait } from "@/fishing";
 import { getFishingSpot } from "@/helpers/fishing.helper";
 import { setFishingParam, setState } from "@/state";
-import { notify } from "@core/thirdparties.service";
+import { notify } from "@core/notification";
 import { Delay } from "@helpers";
 
 global.setTick = jest.fn();
@@ -19,7 +19,7 @@ jest.mock("@helpers", () => ({
   Delay: jest.fn(),
 }));
 
-jest.mock("@core/thirdparties.service", () => ({
+jest.mock("@core/notification", () => ({
   notify: jest.fn(),
 }));
 

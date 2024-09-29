@@ -1,7 +1,7 @@
 import { getFishingParam, setFishingParam, setState } from "@/state";
 import { EmitFishingAction } from "@common/types";
 import { t } from "@config/locales";
-import { notify } from "@core/thirdparties.service";
+import { notify } from "@core/notification";
 
 let baitingTickInterval: NodeJS.Timeout | undefined;
 let baitingOpportunityTickInterval: NodeJS.Timeout | undefined;

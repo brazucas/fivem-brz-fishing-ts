@@ -3,7 +3,7 @@ import { useBait } from "@/fishing";
 import { getFishingSpot } from "@/helpers/fishing.helper";
 import { setFishingParam, setState } from "@/state";
 import { t } from "@config/locales";
-import { notify } from "@core/thirdparties.service";
+import { notify } from "@core/notification";
 import { Delay } from "@helpers";
 
 const castingIndicatorTickTimerInterval = 10;

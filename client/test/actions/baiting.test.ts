@@ -1,13 +1,13 @@
 import { startBaiting, stopBaiting } from "@/actions/baiting";
 import { getFishingParam, setState } from "@/state";
-import { notify } from "@core/thirdparties.service";
+import { notify } from "@core/notification";
 
 global.SendNUIMessage = jest.fn();
 global.IsControlJustPressed = jest.fn();
 global.setTick = jest.fn();
 global.clearTick = jest.fn();
 
-jest.mock("@core/thirdparties.service", () => ({
+jest.mock("@core/notification", () => ({
   notify: jest.fn(),
 }));
 
