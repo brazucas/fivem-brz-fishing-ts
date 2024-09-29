@@ -41,6 +41,8 @@ All notable changes to this project will be documented in this file.
 - Moving tests to source folder
 - Address code dupes
 - Reintroduce git-cliff dev dependency
+- Install husky dependency
+- Add pre-push commit to run changelog
 
 ## [1.0.1] - 2024-09-21
 
