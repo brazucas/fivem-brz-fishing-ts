@@ -1,13 +1,17 @@
 {
-  "name": "brz-core",
+  "name": "brz-lib",
   "version": "1.0.0",
-  "description": "Core helpers/functions to be used in other BRZ scripts",
+  "description": "Lib to help building amazing BRZ-based scripts",
   "main": "index.js",
-  "author": "brz.gg",
-  "license": "ISC",
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
     "@citizenfx/client": "^2.0.7669-1",
     "@citizenfx/server": "^2.0.7669-1",
-    "@types/node": "^16.0.0"
+    "@types/jest": "27",
+    "@types/node": "^16.0.0",
+    "jest": "27",
+    "ts-jest": "27"
   }
 }
