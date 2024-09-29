@@ -16,10 +16,11 @@ export const t = <T extends keyof typeof LocaleDefaults>(
 ): string => {
   const scriptLanguage = SETTINGS.DEFAULT_LANG as keyof typeof locales;
 
-  const locale =
-    localeOverrides(scriptLanguage) || locales?.[scriptLanguage] || [];
+  const locale = locales[scriptLanguage] || [];
 
-  let phrase: string = locale[phase];
+  const overrides = localeOverrides(scriptLanguage);
+
+  let phrase: string = overrides[phase] || locale[phase];
 
   if (!vars) return phrase;
 
