@@ -20,7 +20,7 @@ export const t = <T extends keyof typeof LocaleDefaults>(
 
   const overrides = localeOverrides(scriptLanguage);
 
-  let phrase: string = overrides[phase] || locale[phase];
+  let phrase: string = overrides?.[phase] || locale[phase];
 
   if (!vars) return phrase;
 
