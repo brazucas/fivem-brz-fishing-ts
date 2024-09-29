@@ -47,13 +47,13 @@ jobs:
           '/nui/dist/*' \
           '/nui/*.html' \
           '/dist/*' \
+          '/installation/*' \
           ./package.json \
           ./README.md \
           ./CHANGELOG.md \
           ./INSTALLING.md \
           ./settings.js \
           ./yarn.lock \
-          ./installation/* \
           ./LICENSE
         working-directory: ${{ env.working_path }}
       - name: Upload release asset
