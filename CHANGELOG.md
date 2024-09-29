@@ -43,6 +43,7 @@ All notable changes to this project will be documented in this file.
 - Reintroduce git-cliff dev dependency
 - Install husky dependency
 - Add pre-push commit to run changelog
+- Add run build before push
 
 ## [1.0.1] - 2024-09-21
 

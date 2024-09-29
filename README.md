@@ -14,12 +14,18 @@ This script is 100% free, you can support my work by giving a star to this repos
 )
 </div>
 
-## Supported frameworks
+## Supported inventory scripts
 
-- [x] qb-core, qb-inventory
-- [x] Quasar Framework implementation for QBCore (qs-inventory)
+- qb-inventory
+- qs-inventory
+- ox_inventory.
 
-Note: ESX or any other framework is not supported at the moment, feel free to contribute or open a feature request.
+## Supported notification scripts
+
+- ox_lib
+- qb-core
+
+Note: Want to support other scripts? consider leaving the repository a star and open a feature request.
 
 ## ⚡️ Features
 
