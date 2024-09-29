@@ -1,8 +1,19 @@
 declare const SETTINGS: any;
 
-const qbCoreGetPlayer = () =>
-  SETTINGS.INVENTORY_SYSTEM === "qbCore" &&
-  exports["qb-core"]?.GetCoreObject?.()?.Functions?.GetPlayer;
+const qbCoreGetPlayer = (source: number) => {
+  const getPlayer =
+    SETTINGS.INVENTORY_SYSTEM === "qbCore" &&
+    exports["qb-core"]?.GetCoreObject?.()?.Functions?.GetPlayer;
+
+  const player = getPlayer(source);
+
+  if (!player) {
+    console.error("Player not found ", source);
+    return false;
+  }
+
+  return player;
+};
 
 export const oxInventoryAdapter = {
   removeItem: (source: number, itemName: string) => {
@@ -43,10 +54,9 @@ export const oxInventoryAdapter = {
 
 export const qbCoreAdapter = {
   removeItem: (source: number, itemName: string) => {
-    const player = qbCoreGetPlayer()(source);
+    const player = qbCoreGetPlayer(source);
 
     if (!player) {
-      console.error("Player not found ", source, itemName);
       return false;
     }
 
@@ -54,10 +64,9 @@ export const qbCoreAdapter = {
     return true;
   },
   addItem: (source: number, itemName: string) => {
-    const player = qbCoreGetPlayer()(source);
+    const player = qbCoreGetPlayer(source);
 
     if (!player) {
-      console.error("Player not found ", source, itemName);
       return false;
     }
 
@@ -71,10 +80,9 @@ export const qbCoreAdapter = {
     return item;
   },
   notify: (source: number, message: string, type: "success" | "error") => {
-    const player = qbCoreGetPlayer()(source);
+    const player = qbCoreGetPlayer(source);
 
     if (!player) {
-      console.error("Player not found");
       return false;
     }
 
