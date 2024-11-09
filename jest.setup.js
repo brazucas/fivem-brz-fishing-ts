@@ -46,3 +46,9 @@ global.SETTINGS = {
     },
   },
 };
+
+global.LOCALE_OVERRIDES = {
+  // "en-us": {
+  //   fish_pull_hint: "My custom hint",
+  // },
+};
