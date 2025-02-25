@@ -14,6 +14,8 @@ let shouldWindRope = true;
 let lastPullTime: Date | undefined;
 let isWinding = false;
 
+declare const SETTINGS: any;
+
 export const startReeling = () => {
   pullFish(2);
 
@@ -117,24 +119,30 @@ const setFishDistance = (distance: number) => {
       fishCoords[2]
     );
 
-    if (screenPosition[0]) {
-      const screenResolution = GetActiveScreenResolution();
+    const dynamicMinigamePosition = SETTINGS.DYNAMIC_MINIGAME_POSITION ?? true;
 
-      const posX = screenResolution[0] * screenPosition[1];
-      const posY = screenResolution[1] * screenPosition[2];
+    const isCenter = !dynamicMinigamePosition || !screenPosition[0];
 
-      SendNUIMessage({
-        action: "fish-2d-position",
-        center: false,
-        posX,
-        posY,
-      } as EmitFish2DPositionAction);
-    } else {
+    if (isCenter) {
       SendNUIMessage({
         action: "fish-2d-position",
         center: true,
       } as EmitFish2DPositionAction);
+
+      return;
     }
+
+    const screenResolution = GetActiveScreenResolution();
+
+    const posX = screenResolution[0] * screenPosition[1];
+    const posY = screenResolution[1] * screenPosition[2];
+
+    SendNUIMessage({
+      action: "fish-2d-position",
+      center: false,
+      posX,
+      posY,
+    } as EmitFish2DPositionAction);
   }
 
   if (distance <= 0) {
