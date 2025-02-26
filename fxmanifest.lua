@@ -1,6 +1,7 @@
 fx_version 'cerulean'
 name 'brz-fishing'
 author 'brz.gg'
+lua54 'yes'
 game 'gta5'
 
 shared_scripts {
