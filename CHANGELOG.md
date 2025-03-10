@@ -2,14 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.1.2] - 2025-02-25
+## [1.1.2] - 2025-02-26
 
 ### 🚀 Features
-- Add DYNAMIC_MINIGAME_POSITION setting (Default: true). When setting to false, will force the minigame UI to stay at the center of the screen.
 
+- Add DYNAMIC_MINIGAME_POSITION setting
 - Ignore .vscode folder
+- Update changelog
+
+### ⚙️ Miscellaneous Tasks
+
+- Add lua54 entry
 
 ## [1.1.1] - 2024-11-09
+
+### 🐛 Bug Fixes
+
+- Locale override logic
+- Use rod item for qbcore adapter
+
+## [1.1.0] - 2024-09-29
 
 ### 🚀 Features
 
@@ -43,8 +55,7 @@ All notable changes to this project will be documented in this file.
 - Outdated docs
 - Wrong condition check
 - Locale override logic
-- Locale override logic
-- Use rod item for qbcore adapter
+- Condition check before overriding language
 
 ### ⚙️ Miscellaneous Tasks
 
