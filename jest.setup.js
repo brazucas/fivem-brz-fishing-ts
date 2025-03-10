@@ -8,6 +8,7 @@ global.SETTINGS = {
   ROD_CAST_CHALLENGE_INTERVAL: 1,
   ROD_CAST_CHALLENGE_ACCELERATION: 0.0001,
   BAIT_HOLD_CHALLENGE_TIME: 500,
+  DYNAMIC_MINIGAME_POSITION: true,
   FISHES: {
     fish: {
       itemName: "fish",
@@ -45,4 +46,10 @@ global.SETTINGS = {
       hash: "a_c_stingray",
     },
   },
+};
+
+global.LOCALE_OVERRIDES = {
+  // "en-us": {
+  //   fish_pull_hint: "My custom hint",
+  // },
 };

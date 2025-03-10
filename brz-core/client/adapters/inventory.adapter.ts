@@ -21,8 +21,12 @@ export const qbCoreAdapter = {
     exports["qb-core"].GetCoreObject?.().Functions.Notify(message, type);
   },
   useItemHookName: "inventory:client:ItemBox",
-  useItemHookHandler: (itemData: any, type: "use" | string) => ({
-    itemName: itemData.name,
-    itemType: type,
-  }),
+  useItemHookHandler: (params: [any, "use" | string]) => {
+    const [itemData, type] = params;
+
+    return {
+      itemName: itemData.name,
+      itemType: type,
+    };
+  },
 };

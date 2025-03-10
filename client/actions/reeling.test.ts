@@ -271,6 +271,52 @@ describe("reeling action", () => {
           });
         });
 
+        describe("dynamic minigame position setting", () => {
+          let previousDynamicMinigamePosition: boolean | undefined;
+
+          beforeAll(() => {
+            previousDynamicMinigamePosition = (global as any).SETTINGS
+              .DYNAMIC_MINIGAME_POSITION;
+          });
+
+          afterAll(() => {
+            (global as any).SETTINGS.DYNAMIC_MINIGAME_POSITION =
+              previousDynamicMinigamePosition;
+          });
+
+          it("should call the fish-2d-position NUI action with center set to true when the DYNAMIC_MINIGAME_POSITION setting is set to false", async () => {
+            (GetScreenCoordFromWorldCoord as jest.Mock).mockReturnValue([
+              1, 0.5, 0.5,
+            ]);
+
+            (getFishPed as jest.Mock).mockReturnValueOnce(1);
+
+            (GetEntityCoords as jest.Mock).mockImplementationOnce(
+              (ped: number) => {
+                if (ped === 1) {
+                  return [0, 0, 0];
+                }
+
+                return;
+              }
+            );
+
+            (GetActiveScreenResolution as jest.Mock).mockReturnValue([
+              1920, 1080,
+            ]);
+
+            (global as any).SETTINGS.DYNAMIC_MINIGAME_POSITION = false;
+
+            await tickFunction();
+
+            expect(SendNUIMessage).toHaveBeenCalledWith(
+              expect.objectContaining({
+                center: true,
+              })
+            );
+          });
+        });
+
         it("should call the fish-2d-position NUI action with center set to true if the fish ped world position can't be translated to the screen position based on the screen resolution", async () => {
           (GetScreenCoordFromWorldCoord as jest.Mock).mockReturnValue([
             0, 0, 0,

@@ -11,16 +11,16 @@ export type ScriptLocale<T extends keyof typeof LocaleDefaults> = Locale<
 >;
 
 export const t = <T extends keyof typeof LocaleDefaults>(
-  phase: T,
+  langKey: T,
   vars?: ScriptLocale<T>["variables"]
 ): string => {
   const scriptLanguage = SETTINGS.DEFAULT_LANG as keyof typeof locales;
 
-  const locale = locales[scriptLanguage] || [];
+  const locale = locales[scriptLanguage] || {};
 
   const overrides = localeOverrides(scriptLanguage);
 
-  let phrase: string = overrides?.[phase] || locale[phase];
+  let phrase: string = overrides[langKey] || locale[langKey];
 
   if (!vars) return phrase;
 
@@ -31,13 +31,8 @@ export const t = <T extends keyof typeof LocaleDefaults>(
   return phrase;
 };
 
-const localeOverrides = (language: string) => {
-  if (typeof LOCALE_OVERRIDES !== "undefined" && LOCALE_OVERRIDES?.[language]) {
-    return LOCALE_OVERRIDES[language];
-  }
-
-  return null;
-};
+const localeOverrides = (language: string) =>
+  LOCALE_OVERRIDES?.[language] ?? {};
 
 const getLocaleVars = (locale: typeof LocaleDefaults) =>
   Object.values(locale).reduce((acc, curr, index) => {
