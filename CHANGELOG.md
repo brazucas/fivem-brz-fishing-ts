@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.2] - 2025-02-26
+
+### 🚀 Features
+
+- Add DYNAMIC_MINIGAME_POSITION setting
+- Ignore .vscode folder
+- Update changelog
+
+### ⚙️ Miscellaneous Tasks
+
+- Add lua54 entry
+
+## [1.1.1] - 2024-11-09
+
+### 🐛 Bug Fixes
+
+- Locale override logic
+- Use rod item for qbcore adapter
+
 ## [1.1.0] - 2024-09-29
 
 ### 🚀 Features
@@ -35,6 +54,8 @@ All notable changes to this project will be documented in this file.
 
 - Outdated docs
 - Wrong condition check
+- Locale override logic
+- Condition check before overriding language
 
 ### ⚙️ Miscellaneous Tasks
 
@@ -45,6 +66,8 @@ All notable changes to this project will be documented in this file.
 - Add pre-push commit to run changelog
 - Add run build before push
 - Update readme
+- Fix tag workflow wildcard
+- Fix tag workflow wildcard
 
 ## [1.0.1] - 2024-09-21
 
