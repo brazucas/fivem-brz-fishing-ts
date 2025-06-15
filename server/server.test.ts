@@ -11,21 +11,27 @@ import {
   processRequestStartFishing,
   processUseBaitEvent,
 } from "./server";
-import { addItem, getItem, removeItem } from "@core/inventory";
-import { notify } from "@core/notification";
+import { addItem, getItem, removeItem } from "@brz-fivem-sdk/server/inventory";
+import { notify } from "@brz-fivem-sdk/server/notification";
+import { emitNetTyped, onNetTyped } from "@brz-fivem-sdk/server/helpers/cfx";
 
 jest.mock("@config/locales", () => ({
   t: jest.fn().mockReturnValue("translated message"),
 }));
 
-jest.mock("@core/inventory", () => ({
+jest.mock("@brz-fivem-sdk/server/inventory", () => ({
   addItem: jest.fn(),
   getItem: jest.fn().mockReturnValue({ label: "item label" }),
   removeItem: jest.fn(),
 }));
 
-jest.mock("@core/notification", () => ({
+jest.mock("@brz-fivem-sdk/server/notification", () => ({
   notify: jest.fn(),
+}));
+
+jest.mock("@brz-fivem-sdk/server/helpers/cfx", () => ({
+  emitNetTyped: jest.fn(),
+  onNetTyped: jest.fn(),
 }));
 
 describe("brz-fishing server-side script", () => {
@@ -35,21 +41,21 @@ describe("brz-fishing server-side script", () => {
     });
 
     it("should register to brz-fishing:requestStartFishing event", () => {
-      expect(onNet).toHaveBeenCalledWith(
+      expect(onNetTyped).toHaveBeenCalledWith(
         "brz-fishing:requestStartFishing",
         processRequestStartFishing
       );
     });
 
     it("should register to brz-fishing:useBait event", () => {
-      expect(onNet).toHaveBeenCalledWith(
+      expect(onNetTyped).toHaveBeenCalledWith(
         "brz-fishing:useBait",
         processUseBaitEvent
       );
     });
 
     it("should register to brz-fishing:catchFish event", () => {
-      expect(onNet).toHaveBeenCalledWith(
+      expect(onNetTyped).toHaveBeenCalledWith(
         "brz-fishing:catchFish",
         processCatchFishEvent
       );
@@ -189,7 +195,7 @@ describe("brz-fishing server-side script", () => {
     it("should emit brz-fishing:startFishing event with player's assigned fish", () => {
       processRequestStartFishing(6);
 
-      expect(emitNet).toHaveBeenCalledWith(
+      expect(emitNetTyped).toHaveBeenCalledWith(
         "brz-fishing:startFishing",
         6,
         getPlayerAssignedFish(6)

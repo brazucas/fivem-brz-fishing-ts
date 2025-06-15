@@ -1,13 +1,13 @@
 import { startBaiting, stopBaiting } from "@/actions/baiting";
 import { getFishingParam, setState } from "@/state";
-import { notify } from "@core/notification";
+import { notify } from "@brz-fivem-sdk/client/notification";
 
 global.SendNUIMessage = jest.fn();
 global.IsControlJustPressed = jest.fn();
 global.setTick = jest.fn();
 global.clearTick = jest.fn();
 
-jest.mock("@core/notification", () => ({
+jest.mock("@brz-fivem-sdk/client/notification", () => ({
   notify: jest.fn(),
 }));
 

@@ -15,7 +15,7 @@ global.PlayerId = jest.fn(() => 1);
 
 import { requestStartFishing, startFishing } from "@/fishing";
 import { getState, setState } from "@/state";
-import { getUseItemHookName } from "@core/inventory";
+import { getUseItemHookName } from "@brz-fivem-sdk/client/inventory";
 
 jest.mock("@config/locales", () => ({
   t: jest.fn().mockImplementation((phase: string) => {
@@ -34,7 +34,7 @@ jest.mock("./state", () => ({
   setState: jest.fn(),
 }));
 
-jest.mock("@core/inventory", () => ({
+jest.mock("@brz-fivem-sdk/client/inventory", () => ({
   getUseItemHookName: jest.fn().mockReturnValue("inventory:client:ItemBox"),
   getUseItemHookHandler: jest.fn().mockReturnValue(() => ({
     itemName: "fishingrod1",

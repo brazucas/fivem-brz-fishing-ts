@@ -18,9 +18,9 @@ import {
   setFishingParam,
   setState,
 } from "@/state";
-import { emitNetTyped } from "@core/helpers/cfx";
-import { hasItem } from "@core/inventory";
-import { notify } from "@core/notification";
+import { emitNetTyped } from "@brz-fivem-sdk/client/helpers/cfx";
+import { hasItem } from "@brz-fivem-sdk/client/inventory";
+import { notify } from "@brz-fivem-sdk/client/notification";
 
 global.GetPlayerPed = jest.fn().mockReturnValue(1);
 global.GetEntityCoords = jest.fn().mockReturnValue([0, 0, 0]);
@@ -47,11 +47,11 @@ jest.mock("@config/locales", () => ({
   t: jest.fn().mockImplementation((phase: string) => phase),
 }));
 
-jest.mock("@core/notification", () => ({
+jest.mock("@brz-fivem-sdk/client/notification", () => ({
   notify: jest.fn(),
 }));
 
-jest.mock("@core/inventory", () => ({
+jest.mock("@brz-fivem-sdk/client/inventory", () => ({
   hasItem: jest.fn(),
 }));
 
@@ -59,7 +59,7 @@ jest.mock("./helpers/fishing.helper", () => ({
   getFishingSpot: jest.fn(),
 }));
 
-jest.mock("@core/helpers/cfx", () => ({
+jest.mock("@brz-fivem-sdk/client/helpers/cfx", () => ({
   emitNetTyped: jest.fn(),
 }));
 

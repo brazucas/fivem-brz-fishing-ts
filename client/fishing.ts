@@ -11,8 +11,8 @@ import {
   setFishingParam,
   setState,
 } from "./state";
-import { emitNetTyped } from "@core/helpers/cfx";
-import { notify } from "@core/notification";
+import { emitNetTyped } from "@brz-fivem-sdk/client/helpers/cfx";
+import { notify } from "@brz-fivem-sdk/client/notification";
 import { t } from "@config/locales";
 import {
   runCaughtFishAnimation,
@@ -20,7 +20,7 @@ import {
   stopFishingAnimation,
 } from "./animations";
 import { getFishingSpot } from "./helpers/fishing.helper";
-import { hasItem } from "@core/inventory";
+import { hasItem } from "@brz-fivem-sdk/client/inventory";
 
 export const startFishing = async (source: number, fishId: keyof Fish) => {
   try {

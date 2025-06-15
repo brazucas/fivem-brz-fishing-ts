@@ -2,7 +2,7 @@ import { startReeling, stopReeling } from "@/actions/reeling";
 import { getFishPed } from "@/animations";
 import { catchFish } from "@/fishing";
 import { getFishingParam, setFishingParam } from "@/state";
-import { notify } from "@core/notification";
+import { notify } from "@brz-fivem-sdk/client/notification";
 
 jest.useFakeTimers();
 
@@ -31,7 +31,7 @@ jest.mock("@/state", () => ({
   setState: jest.fn(),
 }));
 
-jest.mock("@core/notification", () => ({
+jest.mock("@brz-fivem-sdk/client/notification", () => ({
   notify: jest.fn(),
 }));
 

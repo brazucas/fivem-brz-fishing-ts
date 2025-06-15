@@ -9,8 +9,8 @@ import {
 import { getFishingSpot } from "@/helpers/fishing.helper";
 import { Fish } from "@common/types";
 import { fishes } from "@config/config";
-import { createPed, playAnim } from "@core/helpers/streaming";
-import { Delay } from "@helpers";
+import { createPed, playAnim } from "@brz-fivem-sdk/client/helpers/streaming";
+import { Delay } from "@brz-fivem-sdk/common/helpers";
 
 global.GetEntityHeading = jest.fn();
 global.SetPedDiesWhenInjured = jest.fn();
@@ -37,16 +37,16 @@ global.DeleteRope = jest.fn();
 
 jest.useFakeTimers();
 
-jest.mock("@core/helpers/streaming", () => ({
+jest.mock("@brz-fivem-sdk/client/helpers/streaming", () => ({
   createPed: jest.fn(),
   playAnim: jest.fn(),
 }));
 
-jest.mock("@/helpers/fishing.helper", () => ({
+jest.mock("./helpers/fishing.helper", () => ({
   getFishingSpot: jest.fn(),
 }));
 
-jest.mock("@helpers", () => ({
+jest.mock("@brz-fivem-sdk/common/helpers", () => ({
   Delay: jest.fn(),
 }));
 

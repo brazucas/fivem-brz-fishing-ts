@@ -1,4 +1,4 @@
-import { Delay } from "@helpers";
+import { Delay } from "@brz-fivem-sdk/common/helpers";
 
 export const getFishingSpot = async (
   playerPed: number,

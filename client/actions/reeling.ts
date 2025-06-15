@@ -1,7 +1,7 @@
 import { catchFish } from "@/fishing";
 import { getFishingParam, setFishingParam, setState } from "@/state";
 import { EmitFish2DPositionAction, EmitFishingAction } from "@common/types";
-import { notify } from "@core/notification";
+import { notify } from "@brz-fivem-sdk/client/notification";
 import { t } from "@config/locales";
 import { getFishPed, getFishRope } from "@/animations";
 import { fishingLimits } from "@config/config";

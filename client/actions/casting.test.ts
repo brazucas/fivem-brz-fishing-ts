@@ -3,8 +3,8 @@ import { performCastingAnimations } from "@/animations";
 import { useBait } from "@/fishing";
 import { getFishingSpot } from "@/helpers/fishing.helper";
 import { setFishingParam, setState } from "@/state";
-import { notify } from "@core/notification";
-import { Delay } from "@helpers";
+import { notify } from "@brz-fivem-sdk/client/notification";
+import { Delay } from "@brz-fivem-sdk/common/helpers";
 
 global.setTick = jest.fn();
 global.clearTick = jest.fn();
@@ -15,11 +15,11 @@ global.GetEntityCoords = jest.fn().mockReturnValue([0, 0, 0]);
 
 jest.useFakeTimers();
 
-jest.mock("@helpers", () => ({
+jest.mock("@brz-fivem-sdk/common/helpers", () => ({
   Delay: jest.fn(),
 }));
 
-jest.mock("@core/notification", () => ({
+jest.mock("@brz-fivem-sdk/client/notification", () => ({
   notify: jest.fn(),
 }));
 

@@ -6,9 +6,9 @@ import {
 } from "@common/types";
 import { fishes } from "@config/config";
 import { t } from "@config/locales";
-import { emitNetTyped, onNetTyped } from "@core/helpers/cfx";
-import { addItem, getItem, removeItem } from "@core/inventory";
-import { notify } from "@core/notification";
+import { emitNetTyped, onNetTyped } from "@brz-fivem-sdk/server/helpers/cfx";
+import { addItem, getItem, removeItem } from "@brz-fivem-sdk/server/inventory";
+import { notify } from "@brz-fivem-sdk/server/notification";
 
 const playerAssignedFishes: Record<number, keyof Fish> = {};
 

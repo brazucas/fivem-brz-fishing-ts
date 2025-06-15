@@ -1,7 +1,7 @@
 import { Fish } from "@common/types";
-import { createPed, playAnim } from "@core/helpers/streaming";
+import { createPed, playAnim } from "@brz-fivem-sdk/client/helpers/streaming";
 import { fishes } from "@config/config";
-import { Delay } from "@helpers";
+import { Delay } from "@brz-fivem-sdk/common/helpers";
 import { getFishingSpot } from "./helpers/fishing.helper";
 
 let fishPed: number | null = null;

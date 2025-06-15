@@ -3,8 +3,8 @@ import { useBait } from "@/fishing";
 import { getFishingSpot } from "@/helpers/fishing.helper";
 import { setFishingParam, setState } from "@/state";
 import { t } from "@config/locales";
-import { notify } from "@core/notification";
-import { Delay } from "@helpers";
+import { notify } from "@brz-fivem-sdk/client/notification";
+import { Delay } from "@brz-fivem-sdk/common/helpers";
 
 const castingIndicatorTickTimerInterval = 10;
 

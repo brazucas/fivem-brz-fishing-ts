@@ -2,7 +2,10 @@ import { Fish } from "@common/types";
 import { requestStartFishing, startFishing } from "./fishing";
 import { getState, setState } from "./state";
 import { t } from "@config/locales";
-import { getUseItemHookName, getUseItemHookHandler } from "@core/inventory";
+import {
+  getUseItemHookName,
+  getUseItemHookHandler,
+} from "@brz-fivem-sdk/client/inventory";
 
 RegisterCommand(
   t("fish_command"),

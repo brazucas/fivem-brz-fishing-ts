@@ -291,6 +291,30 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@brz-fivem-sdk/client@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@brz-fivem-sdk/client/-/client-0.1.1.tgz#50eb92c62581c17f263e7706fc6b484658c78c48"
+  integrity sha512-a/XpGnZUUU889ahHwdE91pI+p32LOp1FicyksXLIMF4ugL64I80T696AoJhpEWh0o1Q3aJ0uRJLmszxSBRPyUA==
+  dependencies:
+    "@brz-fivem-sdk/common" "^0.1.1"
+
+"@brz-fivem-sdk/common@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@brz-fivem-sdk/common/-/common-0.1.1.tgz#7e53e47d4c46afb33575e8ed8ef99be4251f1ae7"
+  integrity sha512-g1nZXawWgCCxALx6wONKmENTKzT+/WJceGThVmpEo53JVqrsRyqA0A1OB9OLqMKXfuzkIyxgn0ddJkMeS8z2Gw==
+
+"@brz-fivem-sdk/common@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@brz-fivem-sdk/common/-/common-0.1.2.tgz#a80ec789598fc9a51859a34fb8d137d5c9a7e827"
+  integrity sha512-yqgfS16IXGXbbr3DFGqAJxUXwklMuC5py9/GpAnsAecds7nJM0d6d5RooDOiYp6vlYvtWrnCFsQp8QT6fE0cZA==
+
+"@brz-fivem-sdk/server@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@brz-fivem-sdk/server/-/server-0.1.5.tgz#cd52b67e7b715715a02c2398c1ac24de6dbb3f0f"
+  integrity sha512-pqToF3EXdlNAyEh/+h/2v3HzD4nA0NyqyDlCfBdevmvDAI0yrsEBsTOzXDm7pAX+mUO4oaaehOuuzo4a+vx4jA==
+  dependencies:
+    "@brz-fivem-sdk/common" "^0.1.1"
+
 "@citizenfx/client@^2.0.7669-1":
   version "2.0.7669-1"
   resolved "https://registry.npmjs.org/@citizenfx/client/-/client-2.0.7669-1.tgz"
