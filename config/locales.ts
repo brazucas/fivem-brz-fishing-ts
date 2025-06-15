@@ -1,5 +1,5 @@
 import { LocaleDefaults } from "../locale/defaults";
-import { Locale } from "../brz-core/locale/locale.types";
+import { Locale } from "@brz-fivem-sdk/common/locale.types";
 import { BrazilianPortuguese } from "../locale/pt-br";
 
 declare const SETTINGS: any;
