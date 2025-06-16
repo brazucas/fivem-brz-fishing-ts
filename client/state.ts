@@ -7,7 +7,7 @@ import {
 import { startReeling, stopReeling } from "./actions/reeling";
 import { startCasting, stopCasting } from "./actions/casting";
 import { startBaiting, stopBaiting } from "./actions/baiting";
-import { stopFishing } from "./fishing";
+import { requestStartFishing, stopFishing } from "./fishing";
 
 let fishingState: FishingState = "not-fishing";
 
@@ -82,3 +82,11 @@ export const setFishingParam = <T extends keyof FishingParam>(
 export const getFishingParam = <T extends keyof FishingParam>(
   parameter: T
 ): FishingParam[T] => fishingParameters[parameter];
+
+export const startFishingState = () => {
+  if (getState() === "not-fishing") {
+    requestStartFishing();
+  } else {
+    setState("not-fishing");
+  }
+};

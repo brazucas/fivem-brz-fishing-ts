@@ -1,19 +1,13 @@
-import { Fish } from "@common/types";
-import { requestStartFishing, startFishing } from "./fishing";
-import { getState, setState } from "./state";
-import { t } from "@config/locales";
 import {
-  getUseItemHookName,
   getUseItemHookHandler,
+  getUseItemHookName,
 } from "@brz-fivem-sdk/client/inventory";
+import { Fish } from "@common/types";
+import { t } from "@config/locales";
+import { startFishing } from "./fishing";
+import { startFishingState } from "./state";
 
-RegisterCommand(
-  t("fish_command"),
-  (source: number, args: string[]) => {
-    changeFishingState();
-  },
-  false
-);
+import "./commands";
 
 TriggerEvent(
   "chat:addSuggestion",
@@ -30,14 +24,6 @@ onNet(getUseItemHookName(), (...params: any) => {
   const { itemName, itemType } = getUseItemHookHandler()(params);
 
   if (itemType === "use" && itemName === "fishingrod1") {
-    changeFishingState();
+    startFishingState();
   }
 });
-
-const changeFishingState = () => {
-  if (getState() === "not-fishing") {
-    requestStartFishing();
-  } else {
-    setState("not-fishing");
-  }
-};

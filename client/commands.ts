@@ -172,3 +172,11 @@ const isPlayerInsideBlip = (blipId: number, radius: number): boolean => {
 RegisterCommand("createblip", createBlipCommand, false);
 RegisterCommand("removeblip", removeBlipCommand, false);
 RegisterCommand("isPlayerInsideBlip", isPlayerInsideBlipCommand, false);
+
+RegisterCommand(
+  t("fish_command"),
+  (source: number, args: string[]) => {
+    startFishingState();
+  },
+  false
+);
