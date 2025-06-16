@@ -3,3 +3,7 @@
 /dist
 /nui/dist
 .vscode
+/locale/*
+!/locale/defaults.ts
+!/locale/en-us.json
+!/locale/pt-br.json
