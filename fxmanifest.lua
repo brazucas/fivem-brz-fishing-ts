@@ -23,5 +23,6 @@ files {
     'settings.js',
     'nui/*.html',
     'nui/dist/*.js',
-    'nui/dist/dom/*.js'
+    'nui/dist/dom/*.js',
+    'locale/*.json'
 }

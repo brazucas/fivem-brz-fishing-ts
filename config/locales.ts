@@ -1,9 +1,13 @@
 import { LocaleDefaults } from "../locale/defaults";
 import { Locale } from "@brz-fivem-sdk/common/locale.types";
-import { BrazilianPortuguese } from "../locale/pt-br";
 
 declare const SETTINGS: any;
 declare const LOCALE_OVERRIDES: any;
+
+const DEFAULT_LANGUAGE = "en-us";
+
+let SCRIPT_LANGUAGE =
+  SETTINGS.LANGUAGE || SETTINGS.DEFAULT_LANG || DEFAULT_LANGUAGE;
 
 export type ScriptLocale<T extends keyof typeof LocaleDefaults> = Locale<
   T,
@@ -14,7 +18,7 @@ export const t = <T extends keyof typeof LocaleDefaults>(
   langKey: T,
   vars?: ScriptLocale<T>["variables"]
 ): string => {
-  const scriptLanguage = SETTINGS.DEFAULT_LANG as keyof typeof locales;
+  const scriptLanguage = SCRIPT_LANGUAGE as keyof typeof locales;
 
   const locale = locales[scriptLanguage] || {};
 
@@ -29,6 +33,16 @@ export const t = <T extends keyof typeof LocaleDefaults>(
   }
 
   return phrase;
+};
+
+const addLocaleOverrides = (
+  lang: string,
+  overrides: Record<string, string>
+) => {
+  LOCALE_OVERRIDES[lang] = {
+    ...LOCALE_OVERRIDES[lang],
+    ...overrides,
+  };
 };
 
 const localeOverrides = (language: string) =>
@@ -47,5 +61,33 @@ const getLocaleVars = (locale: typeof LocaleDefaults) =>
 
 const locales = {
   "en-us": getLocaleVars(LocaleDefaults),
-  "pt-br": getLocaleVars(BrazilianPortuguese),
 };
+
+(() => {
+  if (typeof LoadResourceFile == "undefined") {
+    console.error(
+      "LoadResourceFile is not defined. This script is probably being loaded in a NUI or outside FiveM."
+    );
+    SCRIPT_LANGUAGE = DEFAULT_LANGUAGE;
+    return;
+  }
+
+  const localeFilePath = `locale/${SCRIPT_LANGUAGE}.json`;
+
+  const fileContents = LoadResourceFile(
+    GetCurrentResourceName(),
+    localeFilePath
+  );
+
+  if (!fileContents) {
+    console.error(
+      `Locale file not found: ${localeFilePath}. Please ensure the file exists in the resource directory. Using default locale.`
+    );
+    SCRIPT_LANGUAGE = DEFAULT_LANGUAGE;
+    return;
+  }
+
+  const customLocale = JSON.parse(fileContents) as Record<string, string>;
+
+  addLocaleOverrides(SCRIPT_LANGUAGE, customLocale);
+})();
