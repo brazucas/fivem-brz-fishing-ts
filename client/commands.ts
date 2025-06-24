@@ -3,14 +3,14 @@ import { createBlip } from "@brz-fivem-sdk/client/services/blips";
 import { t } from "@config/locales";
 import { startFishingState } from "./state";
 
-let blips: {
+let fishingHotspots: {
   [key: string]: {
     blipId: number;
     radius: number;
   };
 } = {};
 
-const createBlipCommand = async (source: number, args: string[]) => {
+const createFishingHotspotCommand = async (source: number, args: string[]) => {
   if (source !== 0) {
     notify("This command is not available", "error");
     return;
@@ -23,42 +23,20 @@ const createBlipCommand = async (source: number, args: string[]) => {
     return;
   }
 
-  const blipId = args[1];
+  const hotspotId = args[1];
 
-  if (!blipId) {
-    notify("Please provide a name for the blip", "error");
-    return;
-  }
-
-  const blipLabel = args[2];
-
-  if (!blipLabel) {
-    notify("Please provide a label for the blip", "error");
-    return;
-  }
-
-  if (blipLabel.length > 50) {
-    notify("Blip label cannot exceed 50 characters", "error");
-    return;
-  }
-
-  const overrideBlip = args[3] === "1";
-
-  if (!overrideBlip && blips[blipId]) {
-    notify(
-      `Blip with name ${blipId} already exists. Use 'override' to replace it.`,
-      "error"
-    );
+  if (!hotspotId) {
+    notify("Please provide a name for the fishing hotspot", "error");
     return;
   }
 
   const playerCoords = GetEntityCoords(PlayerPedId(), true);
 
   const blip = createBlip({
-    id: blipId,
+    id: hotspotId,
     coords: [playerCoords[0], playerCoords[1], playerCoords[2]],
     radius: radius,
-    label: blipLabel,
+    label: "Fishing Hotspot",
     color: 2,
     sprite: 68,
     scale: 0.7,
@@ -66,89 +44,98 @@ const createBlipCommand = async (source: number, args: string[]) => {
     shortRange: true,
   });
 
-  blips[blipId] = {
+  fishingHotspots[hotspotId] = {
     blipId: blip.blipEntityId,
     radius: radius,
   };
 
-  notify(`Fishing area blip created, id: ${blip.blipEntityId}`, "success");
-  console.log(
-    `Blip created with ID: ${blip.blipEntityId}, Radius: ${radius}, Name: ${blipId}`
+  notify(
+    `Fishing hotspot parameters printed in console, press F8 to copy them`,
+    "success"
   );
-  console.log(`Blip Label: ${blipLabel}, Override: ${overrideBlip}`);
-  console.log(
-    `Coords: ${playerCoords[0]}, ${playerCoords[1]}, ${playerCoords[2]}`
-  );
+
+  console.log({
+    [hotspotId]: {
+      coords: {
+        x: playerCoords[0],
+        y: playerCoords[1],
+        z: playerCoords[2],
+      },
+      radius,
+      fishes: ["fish", "dolphin", "hammerShark"],
+      bait: ["commonbait"],
+      waterType: "saltwater",
+    },
+  });
 };
 
-const removeBlipCommand = (source: number, args: string[]) => {
+const removeFishingHotspotCommand = (source: number, args: string[]) => {
   if (source !== 0) {
     notify("This command is not available", "error");
     return;
   }
 
   if (args.length < 1) {
-    notify("Please provide a blip ID to remove", "error");
+    notify("Please provide a fishing hotspot ID to remove", "error");
     return;
   }
 
-  const blipId = parseInt(args[0]);
+  const hotspotId = args[0];
 
-  const blip = blips[blipId];
+  const hotspot = fishingHotspots[hotspotId];
 
-  if (!blip) {
-    notify("No blip to remove", "error");
+  if (!hotspot) {
+    notify("No fishing hotspot to remove", "error");
     return;
   }
 
-  if (!DoesBlipExist(blip.blipId)) {
-    notify("No blip found with the provided ID", "error");
+  if (!DoesBlipExist(hotspot.blipId)) {
+    notify("No fishing hotspot found with the provided ID", "error");
     return;
   }
 
-  RemoveBlip(blip.blipId);
-  notify("Fishing area blip removed", "success");
+  RemoveBlip(hotspot.blipId);
+  delete fishingHotspots[hotspotId];
+  notify("Fishing hotspot removed", "success");
 };
 
-const isPlayerInsideBlipCommand = (source: number, args: string[]) => {
+const isPlayerInsideFishingHotspotCommand = (
+  source: number,
+  args: string[]
+) => {
   if (source !== 0) {
     notify("This command is not available", "error");
     return;
   }
 
-  if (source !== 0) {
-    notify("This command is not available", "error");
+  const hotspotName = args[0];
+
+  if (!hotspotName) {
+    notify("Please provide a fishing hotspot name", "error");
     return false;
   }
 
-  const blipName = args[0];
-
-  if (!blipName) {
-    notify("Please provide a blip name", "error");
+  if (!fishingHotspots[hotspotName]) {
+    notify(`No fishing hotspot found with name ${hotspotName}`, "error");
     return false;
   }
 
-  if (!blips[blipName]) {
-    notify(`No blip found with name ${blipName}`, "error");
-    return false;
-  }
+  const hotspot = fishingHotspots[hotspotName];
 
-  const blip = blips[blipName];
-
-  if (!DoesBlipExist(blip.blipId)) {
-    notify("No blip found with the provided ID", "error");
+  if (!DoesBlipExist(hotspot.blipId)) {
+    notify("No fishing hotspot found with the provided ID", "error");
     return;
   }
 
-  const inside = isPlayerInsideBlip(blip.blipId, blip.radius);
+  const inside = isPlayerInsideHotspot(hotspot.blipId, hotspot.radius);
 
   notify(
-    `You are ${inside ? "" : "not "}inside the blip area`,
+    `You are ${inside ? "" : "not "}inside the fishing hotspot area`,
     inside ? "success" : "error"
   );
 };
 
-const isPlayerInsideBlip = (blipId: number, radius: number): boolean => {
+const isPlayerInsideHotspot = (blipId: number, radius: number): boolean => {
   const playerCoords = GetEntityCoords(PlayerPedId(), true);
   const blipCoords = GetBlipInfoIdCoord(blipId);
 
@@ -162,16 +149,20 @@ const isPlayerInsideBlip = (blipId: number, radius: number): boolean => {
   );
 
   notify(
-    `Distance to blip: ${distance.toFixed(2)} | Radius: ${radius}`,
+    `Distance to fishing hotspot: ${distance.toFixed(2)} | Radius: ${radius}`,
     "success"
   );
 
   return distance < radius;
 };
 
-RegisterCommand("createblip", createBlipCommand, false);
-RegisterCommand("removeblip", removeBlipCommand, false);
-RegisterCommand("isPlayerInsideBlip", isPlayerInsideBlipCommand, false);
+RegisterCommand("createfishinghotspot", createFishingHotspotCommand, false);
+RegisterCommand("removefishinghotspot", removeFishingHotspotCommand, false);
+RegisterCommand(
+  "isPlayerInsideFishingHotspot",
+  isPlayerInsideFishingHotspotCommand,
+  false
+);
 
 RegisterCommand(
   t("fish_command"),
