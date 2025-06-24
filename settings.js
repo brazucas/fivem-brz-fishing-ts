@@ -48,6 +48,72 @@ const SETTINGS = {
       hash: "a_c_stingray",
     },
   },
+  blips: {
+    fishing_spot: {
+      sprite: 68,
+      scale: 0.7,
+      color: 2,
+      name: "Fishing Spot",
+      display: 4,
+    },
+  },
+  hotspots: {
+    vinewood_hills_pier1: {
+      coords: {
+        x: -202.26690673828125,
+        y: 771.5943603515625,
+        z: 196.0670776367187,
+      },
+      radius: 25,
+      fishes: ["fish", "dolphin", "hammerShark"],
+      bait: ["commonbait"],
+      waterType: "freshwater",
+    },
+    vinewood_hills_pier2: {
+      coords: {
+        x: 52.54157638549805,
+        y: 838.1432495117188,
+        z: 196.04396057128906,
+      },
+      radius: 25,
+      fishes: ["fish", "dolphin", "hammerShark"],
+      bait: ["commonbait"],
+      waterType: "freshwater",
+    },
+    vinewood_racetrack: {
+      coords: {
+        x: 1214.0972900390625,
+        y: 217.0813751220703,
+        z: 78.80705261230469,
+      },
+      radius: 25,
+      fishes: ["fish", "dolphin", "hammerShark"],
+      bait: ["commonbait"],
+      waterType: "freshwater",
+    },
+    land_act_reservoir: {
+      coords: {
+        x: 1926.6541748046875,
+        y: 232.1569061279297,
+        z: 160.08026123046875,
+      },
+      radius: 25,
+      fishes: ["fish", "dolphin", "hammerShark"],
+      bait: ["commonbait"],
+      waterType: "freshwater",
+    },
+    del_perro_beach_pier: {
+      coords: {
+        x: -1882.2113037109375,
+        y: -1285.4139404296875,
+        z: -0.1267852783203125,
+      },
+      radius: 25,
+      fishes: ["fish", "dolphin", "hammerShark"],
+      bait: ["commonbait"],
+      waterType: "saltwater",
+    },
+  },
 };
 
 const LOCALE_OVERRIDES = {

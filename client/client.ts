@@ -8,6 +8,7 @@ import { startFishing } from "./fishing";
 import { startFishingState } from "./state";
 
 import "./commands";
+import "./bootstrap";
 
 TriggerEvent(
   "chat:addSuggestion",

@@ -99,4 +99,8 @@ export const LocaleDefaults = {
     label: "TO PULL",
     variables: {},
   },
+  fishing_hotspot_blip_label: {
+    label: "Fishing Hotspot",
+    variables: {},
+  },
 };
