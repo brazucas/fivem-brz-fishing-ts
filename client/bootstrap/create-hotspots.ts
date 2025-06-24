@@ -1,4 +1,5 @@
 import { FishingHotspot, FishingHotspots } from "@/types/hotspots";
+import { createPed } from "@brz-fivem-sdk/client/helpers/streaming";
 import { createBlip } from "@brz-fivem-sdk/client/services/blips";
 import { t } from "@config/locales";
 
@@ -11,6 +12,9 @@ const BLIP_DEFAULT_DISPLAY = 4;
 const BLIP_DEFAULT_SHORT_RANGE = true;
 
 const NUMBER_OF_SPLAHES = 4;
+const NUMBER_OF_FISHES = 15;
+
+const FISH_SPAWN_REFRESH_TIME_IN_SECONDS = 30;
 
 const createBlipsFromSettings = (
   id: string,
@@ -75,6 +79,57 @@ const isPlayerNearHotspot = (
   return distance <= hotspot.radius + playerFieldOfView * 2;
 };
 
+const cycleActiveHotspotAnimation = (hotspot: FishingHotspot) => {
+  if (isPlayerNearHotspot(GetEntityCoords(PlayerPedId(), true), hotspot)) {
+    for (let i = 0; i < NUMBER_OF_FISHES; i++) {
+      spawnFishPed([hotspot.coords.x, hotspot.coords.y, hotspot.coords.z]);
+    }
+  }
+
+  setTimeout(() => {
+    cycleActiveHotspotAnimation(hotspot);
+  }, FISH_SPAWN_REFRESH_TIME_IN_SECONDS * 1000);
+};
+
+const spawnFishPed = async (coords: number[]) => {
+  const randomSpot = randomSpotInsideCircleFromCoord(50, coords);
+
+  const peds = [802685111, -1950698411, 1015224100, 113504370, "a_c_stingray"];
+
+  const randomPedIndex = Math.floor(Math.random() * peds.length);
+
+  const ped = await createPed(
+    0,
+    peds[randomPedIndex],
+    randomSpot[0],
+    randomSpot[1],
+    coords[2] + 5,
+    0,
+    true,
+    true
+  );
+
+  SetPedDiesWhenInjured(ped, false);
+  SetEntityInvincible(ped, true);
+  SetEntityVisible(ped, false, false);
+  SetEntityCollision(ped, false, false);
+
+  setTimeout(() => {
+    DeletePed(ped);
+  }, FISH_SPAWN_REFRESH_TIME_IN_SECONDS * 1000);
+};
+
+const randomSpotInsideCircleFromCoord = (
+  radius: number,
+  coords: number[]
+): number[] => {
+  const angle = Math.random() * 2 * Math.PI;
+  const r = Math.sqrt(Math.random()) * radius;
+  const x = coords[0] + r * Math.cos(angle);
+  const y = coords[1] + r * Math.sin(angle);
+  return [x, y];
+};
+
 const validateSettings = (settings?: FishingHotspots | undefined): boolean => {
   if (!settings || typeof settings !== "object" || Array.isArray(settings)) {
     console.error(
@@ -99,5 +154,6 @@ if (validateSettings(SETTINGS.hotspots)) {
   )) {
     createBlipsFromSettings(id, hotspot, SETTINGS.blipSettings);
     cycleWaterSplashEffects(hotspot);
+    cycleActiveHotspotAnimation(hotspot);
   }
 }
