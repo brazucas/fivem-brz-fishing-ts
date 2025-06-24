@@ -1,1 +1,1 @@
-import "./create-hotspots-blips";
+import "./create-hotspots";
