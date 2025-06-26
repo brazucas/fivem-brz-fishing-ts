@@ -1,7 +1,7 @@
 import { FishingHotspot, FishingHotspots } from "@/types/hotspots";
 import { createPed } from "@brz-fivem-sdk/client/helpers/streaming";
 import { notify } from "@brz-fivem-sdk/client/notification";
-import { createPolyZone } from "@brz-fivem-sdk/client/polyzones";
+import { createCircleZone } from "@brz-fivem-sdk/client/polyzones";
 import { createBlip } from "@brz-fivem-sdk/client/services/blips";
 import { t } from "@config/locales";
 
@@ -42,11 +42,10 @@ const createFishingHotspotZone = (
   id: string,
   hotspot: FishingHotspot
 ): void => {
-  const zone = createPolyZone({
+  const zone = createCircleZone({
     coords: hotspot.coords,
     id,
-    length: hotspot.radius * 2,
-    width: hotspot.radius * 2,
+    radius: hotspot.radius,
     minZ: hotspot.coords.z - 3,
     maxZ: hotspot.coords.z + 2,
     onPlayerInOut: (inside: boolean) => {
