@@ -291,10 +291,10 @@
   resolved "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@brz-fivem-sdk/client@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@brz-fivem-sdk/client/-/client-0.1.2.tgz#bca8d80a0a36fb3727170fe725575b6171144184"
-  integrity sha512-HVVFjgv5/GU3vQUcbktXsI1b5xxbU+/H8dbhGCTDzWPFetkDQOOAEbtitQNoyXzlkxnOh6nnydFWrbO7U4S+vw==
+"@brz-fivem-sdk/client@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@brz-fivem-sdk/client/-/client-0.1.3.tgz#b91fe30208298b90c3e5357d302309d7401b0788"
+  integrity sha512-APknibduMZQO4Oz880p9sh+muev7Bxgxg+C42mExYaA9pZzp8udJzreQxR4MwbPdxRshOA3ztVqfqii2jekEhg==
   dependencies:
     "@brz-fivem-sdk/common" "^0.1.1"
 
