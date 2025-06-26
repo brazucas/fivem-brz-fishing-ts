@@ -50,9 +50,9 @@ const createFishingHotspotZone = (
     maxZ: hotspot.coords.z + 2,
     onPlayerInOut: (inside: boolean) => {
       if (inside) {
-        notify("Entered fishing hotspot area", "success");
+        notify(t("enter_hotspot_area"), "success");
       } else {
-        notify("Exited fishing hotspot area", "success");
+        notify(t("exit_hotspot_area"), "success");
       }
     },
   });

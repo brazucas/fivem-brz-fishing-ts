@@ -103,4 +103,12 @@ export const LocaleDefaults = {
     label: "Fishing Hotspot",
     variables: {},
   },
+  enter_hotspot_area: {
+    label: "You have entered a fishing hotspot area.",
+    variables: {},
+  },
+  exit_hotspot_area: {
+    label: "You have exited a fishing hotspot area.",
+    variables: {},
+  },
 };
