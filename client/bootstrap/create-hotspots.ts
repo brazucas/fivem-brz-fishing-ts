@@ -42,13 +42,18 @@ const createFishingHotspotZone = (
   id: string,
   hotspot: FishingHotspot
 ): void => {
-  const zone = createCircleZone({
+  const shouldNotify = SETTINGS?.HOTSPOT_NOTIFICATIONS ?? true;
+
+  createCircleZone({
     coords: hotspot.coords,
     id,
     radius: hotspot.radius,
     minZ: hotspot.coords.z - 3,
     maxZ: hotspot.coords.z + 2,
     onPlayerInOut: (inside: boolean) => {
+      if (!shouldNotify) {
+        return;
+      }
       if (inside) {
         notify(t("enter_hotspot_area"), "success");
       } else {
