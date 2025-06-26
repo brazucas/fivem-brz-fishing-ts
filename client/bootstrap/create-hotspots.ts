@@ -1,5 +1,7 @@
 import { FishingHotspot, FishingHotspots } from "@/types/hotspots";
 import { createPed } from "@brz-fivem-sdk/client/helpers/streaming";
+import { notify } from "@brz-fivem-sdk/client/notification";
+import { createPolyZone } from "@brz-fivem-sdk/client/polyzones";
 import { createBlip } from "@brz-fivem-sdk/client/services/blips";
 import { t } from "@config/locales";
 
@@ -33,6 +35,27 @@ const createBlipsFromSettings = (
     display: blipSettings.display || BLIP_DEFAULT_DISPLAY,
     color: blipSettings.color || BLIP_DEFAULT_COLOR,
     shortRange: blipSettings.shortRange || BLIP_DEFAULT_SHORT_RANGE,
+  });
+};
+
+const createFishingHotspotZone = (
+  id: string,
+  hotspot: FishingHotspot
+): void => {
+  const zone = createPolyZone({
+    coords: hotspot.coords,
+    id,
+    length: hotspot.radius * 2,
+    width: hotspot.radius * 2,
+    minZ: hotspot.coords.z - 3,
+    maxZ: hotspot.coords.z + 2,
+    onPlayerInOut: (inside: boolean) => {
+      if (inside) {
+        notify("Entered fishing hotspot area", "success");
+      } else {
+        notify("Exited fishing hotspot area", "success");
+      }
+    },
   });
 };
 
@@ -153,6 +176,7 @@ if (validateSettings(SETTINGS.hotspots)) {
     SETTINGS.hotspots as FishingHotspots
   )) {
     createBlipsFromSettings(id, hotspot, SETTINGS.blipSettings);
+    createFishingHotspotZone(id, hotspot);
     cycleWaterSplashEffects(hotspot);
     cycleActiveHotspotAnimation(hotspot);
   }
