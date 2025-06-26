@@ -14,7 +14,7 @@
   "author": "brz.gg",
   "license": "ISC",
   "devDependencies": {
-    "@brz-fivem-sdk/client": "^0.1.3",
+    "@brz-fivem-sdk/client": "^0.1.4",
     "@brz-fivem-sdk/common": "^0.1.2",
     "@brz-fivem-sdk/server": "^0.1.5",
     "@citizenfx/client": "^2.0.7669-1",
